@@ -1,1 +1,63 @@
 /* First need to define the body for the project, how to structure it*/
+body {
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.navigation {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    background: #9EDDFF;
+}
+
+header::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+nav {
+    float: right;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-left: 65px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-top: 15px;
+    padding-right: 23px;
+    padding-bottom: 15px;
+}
+
+nav a {
+    color: #6499E9;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+nav a:hover {
+    color: #BEFFF7;
+    
+}
+
+.container {
+    background-color: #FAF8ED;
+}
