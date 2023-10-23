@@ -17,7 +17,7 @@ h1 {
 }
 
 header {
-    background: #9EDDFF;
+    background: #45474B;
 }
 
 header::after {
@@ -47,14 +47,14 @@ nav li {
 }
 
 nav a {
-    color: #6499E9;
+    color: #1db954;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 18px;
 }
 
 nav a:hover {
-    color: #BEFFF7;
+    color: #1ed760;
     
 }
 
