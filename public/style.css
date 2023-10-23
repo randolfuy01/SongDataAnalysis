@@ -154,3 +154,11 @@ nav a:hover {
 .developer p {
     flex: 1; /* allows the paragraph to take remaining space */
 }
+
+.centered_text {
+    text-align: center;
+}
+
+.img {
+    border: 5px solid #555;
+}
