@@ -1,1 +1,156 @@
 /* First need to define the body for the project, how to structure it*/
+body {
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.navigation {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    background: #9EDDFF;
+}
+
+header::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+nav {
+    float: right;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-left: 65px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-top: 15px;
+    padding-right: 23px;
+    padding-bottom: 15px;
+}
+
+nav a {
+    color: #6499E9;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+nav a:hover {
+    color: #BEFFF7;
+    
+}
+
+.container {
+    background-color: #FAF8ED;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+    height: 15%;
+  }
+
+.artist-description {
+    padding-left: 25%;
+    padding-right: 25%;
+    padding-top: 2%;
+    padding-bottom: 5%;
+}
+
+
+.simple-bar-chart{
+    --line-count: 8;
+    --line-color: currentcolor;
+    --line-opacity: 0.25;
+    --item-gap: 2%;
+    --item-default-color: #060606;
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 15rem;
+    width: 30rem;
+    display: grid;
+    grid-auto-flow: column;
+    gap: var(--item-gap);
+    align-items: end;
+    padding-inline: var(--item-gap);
+    --padding-block: 1.5rem; /*space for labels*/
+    padding-block: var(--padding-block);
+    position: relative;
+    isolation: isolate;
+  }
+  
+.simple-bar-chart::after{
+    content: "";
+    position: absolute;
+    inset: var(--padding-block) 0;
+    z-index: -1;
+    --line-width: 1px;
+    --line-spacing: calc(100% / var(--line-count));
+    background-image: repeating-linear-gradient(to top, transparent 0 calc(var(--line-spacing) - var(--line-width)), var(--line-color) 0 var(--line-spacing));
+    box-shadow: 0 var(--line-width) 0 var(--line-color);
+    opacity: var(--line-opacity);
+}
+
+.simple-bar-chart > .item{
+    height: calc(1% * var(--val));
+    background-color: var(--clr, var(--item-default-color));
+    position: relative;
+    animation: item-height 1s ease forwards
+}
+@keyframes item-height { from { height: 0 } }
+  
+  .simple-bar-chart > .item > * { position: absolute; text-align: center }
+  .simple-bar-chart > .item > .label { inset: 100% 0 auto 0 }
+  .simple-bar-chart > .item > .value { inset: auto 0 100% 0 }
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+}
+
+.artist-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.developer {
+    display: flex;
+    align-items: center; /* vertically aligns items in the center */
+    margin-bottom: 20px;
+}
+
+.developer img {
+    width: 150px;  
+    height: 150px;
+    object-fit: cover;
+    margin-right: 20px; /* to give space between image and bio */
+}
+
+.developer p {
+    flex: 1; /* allows the paragraph to take remaining space */
+}
