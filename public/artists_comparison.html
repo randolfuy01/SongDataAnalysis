@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-radar.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content= "text/html;charset=UTF-8">
@@ -27,6 +29,15 @@
     <div id = "container">
       <div class="row">
         <div class="column">
+          <input inputmode="text" id="artistInput" onkeyup="myFunction()" placeholder="Search for artists..">
+          <ul id="artist_search">
+            <li><a href="#">Adele</a></li>
+            <li><a href="#">Michael Jackson</a></li>
+            <li><a href="#">Kendrick Lamar</a></li>
+            <li><a href="#">BTS</a></li>
+            <li><a href="#">Frank Ocean</a></li>
+            <li><a href="#">50 Cent</a></li>
+          </ul>
           <h2 class = "centered_text"> Kanye West </h2>
           <img class = "center img" id = "artist-image" src="/images/example-kanye.jpg" alt="artist-picture" style = "width: 150px; 
           height: 150px; object-fit: cover; object-position: 25% 25%;">
@@ -43,6 +54,15 @@
         </p>
       </div>
         <div class="column">
+          <input inputmode="text" id="artistInput" onkeyup="myFunction()" placeholder="Search for artists..">
+          <ul id="artist_search">
+            <li><a href="#">Adele</a></li>
+            <li><a href="#">Michael Jackson</a></li>
+            <li><a href="#">Kendrick Lamar</a></li>
+            <li><a href="#">BTS</a></li>
+            <li><a href="#">Frank Ocean</a></li>
+            <li><a href="#">50 Cent</a></li>
+          </ul>
           <h2 class = "centered_text"> Drake </h2>
           <img class = "center img" id = "artist-image" src="/images/example-drake.jpeg" alt="artist-picture" style = "width: 150px; 
           height: 150px; object-fit: cover; object-position: 25% 25%;">
@@ -59,9 +79,16 @@
             making him one of the most commercially successful and critically acclaimed artists in contemporary music. 
             In addition to his music, Drake is also a savvy entrepreneur and has made significant contributions to the world of fashion and business.
           </p>
+          </div>
         </div>
+    </div>
+    <div id = "spider_container">
+
     </div>
     <div id = "footer">
     </div>
-    <script src="index.js"></script>
+    <script src="artists_comparison.js">
+      anyChart.onDocumentReady(function() {
+      });
+    </script>
 </html>

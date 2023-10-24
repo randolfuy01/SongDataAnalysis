@@ -1,4 +1,6 @@
 /* First need to define the body for the project, how to structure it*/
+
+/* Basic Overall Arching CSS */
 body {
     margin: 0;
     font-family: 'Times New Roman', Times, serif;
@@ -75,6 +77,7 @@ nav a:hover {
     padding-right: 25%;
     padding-top: 2%;
     padding-bottom: 5%;
+    border: black;
 }
 
 
@@ -198,4 +201,45 @@ nav a:hover {
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
   
+/* This is for the artists comparison page */
+
+#artistInput {
+    background-image: url('/images/search-icon.png'); 
+    background-size: 20px 20px;
+    background-position: 10px 12px; 
+    background-repeat: no-repeat; 
+    width: 100%; 
+    font-size: 16px; 
+    padding: 12px 20px 12px 40px; 
+    border: 1px solid #ddd; 
+    margin-bottom: 12px; 
+}
   
+#artist_search {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+  
+#artist_search li a {
+    border: 1px solid #ddd; 
+    margin-top: -1px; 
+    background-color: #f6f6f6; 
+    padding: 12px; 
+    text-decoration: none; 
+    font-size: 18px; 
+    color: black; 
+    display: block; 
+}
+  
+#artist_search li a:hover:not(.header) {
+    background-color: #eee; 
+}
+
+#spider_container {
+    margin-top:auto;
+    margin-left: 450px;
+    margin-right: 450px;
+    width:500px;
+    height:500px;
+}
