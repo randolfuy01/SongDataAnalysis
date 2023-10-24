@@ -28,32 +28,21 @@
     </header>
     <div id = "container">
       <h2 style="text-align: center;">Song Comparison</h2>
-      <p style="text-align: center;">"Welcome to our Song Comparison Page, your gateway to the diverse universe of music. Whether you're hunting for the ideal anthem to match your mood, digging for lyrical gems, or exploring the nuances of your favorite tunes, this is the place to be. Join us as we dissect, contrast, and appreciate the melodies that soundtrack our lives. From iconic classics to contemporary hits, we've got you covered on your musical journey!"</p>
-
-      <div class="dropdown" style="float:left;">
-        <button class="dropbtn">Insert Song 1</button>
-        <div class="dropdown-content" style="left:0;">
-          <a href="#">Danceability</a>
-          <a href="#">Energy</a>
-          <a href="#">Tempo</a>
-          <a href="#">Loudness</a>
-          <a href="#">Instrumentalness</a>
-          <a href="#">Speechiness</a>
-        </div>
-      </div>
-      <div class="dropdown" style="float:right;">
-        <button class="dropbtn">Insert Song 2</button>
-        <div class="dropdown-content">
-          <a href="#">Danceability</a>
-          <a href="#">Energy</a>
-          <a href="#">Tempo</a>
-          <a href="#">Loudness</a>
-          <a href="#">Instrumentalness</a>
-          <a href="#">Speechiness</a>
-        </div>
-      </div>
+      <p style="text-align: center;">"Welcome to our Song Comparison Page, your gateway to the diverse universe of music. 
+        Whether you're hunting for the ideal anthem to match your mood, digging for lyrical gems, or exploring the nuances of your 
+        favorite tunes, this is the place to be. Join us as we dissect, contrast, and appreciate the melodies that soundtrack our lives. 
+        From iconic classics to contemporary hits, we've got you covered on your musical journey!"</p>
       <div class = "row">
         <div class = "column">
+          <input style = "width: 660px;" inputmode="text" id="songInput" onkeyup="myFunction()" placeholder="Search for songs..">
+          <ul id="song_search">
+            <li><a href="#">Best Interest</a></li>
+            <li><a href="#">Kill Bill</a></li>
+            <li><a href="#">Pink + White</a></li>
+            <li><a href="#">Power</a></li>
+            <li><a href="#">Ballroom Extravaganza</a></li>
+            <li><a href="#">Umm.. Life</a></li>
+          </ul>
           <h2 class = "centered_text"> Nights</h2>
           <img class = "center img" id = "artist-image" src="/images/example-blonde.jpeg" alt="song-picture" style = "width: 150px; 
           height: 150px; object-fit: cover; object-position: 25% 25%;">
@@ -64,6 +53,15 @@
             id = "url_link"><p class = "centered_text">Song Link</p></a>
         </div>
         <div class = "column">
+          <input style = "width: 660px;" inputmode="text" id="songInput" onkeyup="myFunction()" placeholder="Search for songs..">
+          <ul id="song_search">
+            <li><a href="#">Best Interest</a></li>
+            <li><a href="#">Kill Bill</a></li>
+            <li><a href="#">Pink + White</a></li>
+            <li><a href="#">Power</a></li>
+            <li><a href="#">Ballroom Extravaganza</a></li>
+            <li><a href="#">Umm.. Life</a></li>
+          </ul>
           <h2 class = "centered_text"> Bed Peace</h2>
           <img class = "center img" id = "artist-image" src="/images/example-sail_out.png" alt="song-picture" style = "width: 150px; 
           height: 150px; object-fit: cover; object-position: 25% 25%;">
@@ -76,7 +74,7 @@
       </div>
     </div>
     <div id = "spider_container">
-      
+
     </div>
     <div id = "footer">
     </div>

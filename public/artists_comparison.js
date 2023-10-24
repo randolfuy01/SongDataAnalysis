@@ -1,4 +1,3 @@
-
 var artist_data1 = [
     {x: "frequency", value: 65},
     {x: "tempo", value: 60},
@@ -15,7 +14,7 @@ var artist_data2 = [
     {x: "liveness", value: 75},
     {x: "valence", value: 50},
     {x: "energy",value: 80},
-]
+];
 
 // CREATING THE CHART 
 var artist_chart = anychart.radar();
@@ -39,4 +38,3 @@ artist_chart.container('spider_container');
 
 // initiate chart drawing
 artist_chart.draw();
-
