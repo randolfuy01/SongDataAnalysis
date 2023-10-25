@@ -29,15 +29,20 @@
     <div id = "container">
       <div class="row">
         <div class="column">
-          <input style = "width: 660px;" inputmode="text" id="artistInput" onkeyup="myFunction()" placeholder="Search for artists..">
-          <ul id="artist_search">
-            <li><a href="#">Adele</a></li>
-            <li><a href="#">Michael Jackson</a></li>
-            <li><a href="#">Kendrick Lamar</a></li>
-            <li><a href="#">BTS</a></li>
-            <li><a href="#">Frank Ocean</a></li>
-            <li><a href="#">50 Cent</a></li>
-          </ul>
+          <div class="dropdown1">
+            <button onclick="myFunction1()" class="dropbtn1">Search Artist 1...</button>
+            <div id="myDropdown1" class="dropdown-content1">
+              <input type="text" placeholder="Search.." id="myInput1" onkeyup="filterFunction1()">
+              <a href="#about">Drake</a>
+              <a href="#support">Dominic Fike</a>
+              <a href="#base">Fergie</a>
+              <a href="#blog">Frank Ocean</a>
+              <a href="#support">Red Hot Chili Pepper</a>
+              <a href="#contact">SZA</a>
+              <a href="#custom">The 1975</a>
+            </div>
+          </div>
+
           <h2 class = "centered_text"> Kanye West </h2>
           <img class = "center img" id = "artist-image" src="/images/example-kanye.jpg" alt="artist-picture" style = "width: 150px; 
           height: 150px; object-fit: cover; object-position: 25% 25%;">
@@ -54,15 +59,21 @@
         </p>
       </div>
         <div class="column">
-          <input style = "width: 660px;" inputmode="text" id="artistInput" onkeyup="myFunction()" placeholder="Search for artists..">
-          <ul id="artist_search">
-            <li><a href="#">Adele</a></li>
-            <li><a href="#">Michael Jackson</a></li>
-            <li><a href="#">Kendrick Lamar</a></li>
-            <li><a href="#">BTS</a></li>
-            <li><a href="#">Frank Ocean</a></li>
-            <li><a href="#">50 Cent</a></li>
-          </ul>
+          <div class="dropdown2">
+            <button onclick="myFunction2()" class="dropbtn2">Search Artist 2...</button>
+            <div id="myDropdown2" class="dropdown-content2">
+              <input type="text" placeholder="Search.." id="myInput2" onkeyup="filterFunction2()">
+              <a href="#about">Drake</a>
+              <a href="#support">Dominic Fike</a>
+              <a href="#base">Fergie</a>
+              <a href="#blog">Frank Ocean</a>
+              <a href="#support">Red Hot Chili Pepper</a>
+              <a href="#contact">SZA</a>
+              <a href="#custom">The 1975</a>
+            </div>
+          </div>
+
+
           <h2 class = "centered_text"> Drake </h2>
           <img class = "center img" id = "artist-image" src="/images/example-drake.jpeg" alt="artist-picture" style = "width: 150px; 
           height: 150px; object-fit: cover; object-position: 25% 25%;">
