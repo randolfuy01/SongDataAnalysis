@@ -332,3 +332,61 @@ nav a:hover {
 }
 .dropdown-content2 a:hover {background-color: #f1f1f1}
 .show {display:block;}
+/*Developer Page*/
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+nav li {
+    float: left;
+}
+
+nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+.developers-heading {
+    margin-bottom: 50px; /* Adjusts spacing below the heading */
+}
+
+#content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* This creates 2 even columns */
+    gap: 20px; /* This adds spacing between grid items */
+    max-width: 80%; /* Makes the grid less wide */
+    margin: 0 auto; /* Centers the grid horizontally */
+}
+
+.developer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the content horizontally */
+    text-align: center; /* Text centering for better aesthetics */
+}
+
+.developer img {
+    margin-bottom: 10px; /* Adds some space between the image and the bio */
+}
+
