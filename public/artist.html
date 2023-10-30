@@ -13,6 +13,7 @@
       <div id = "navigation">
         <nav>
           <ul>
+            <img src="/images/matchify_transparent.gif" alt="Logo" width="200" height="200">
             <li><a href = "index.html">Home</a></li>
             <li><a href = "artist.html">Artist</a></li>
             <li><a href = "artists_comparison.html"> Artist Comparison</a></li>
@@ -25,6 +26,19 @@
       </div>
     </header>
     <div id = "container">
+      <div class="dropdown1">
+        <button onclick="myFunction1()" class="dropbtn1">Search Artist</button>
+        <div id="myDropdown1" class="dropdown-content1">
+          <input type="text" placeholder="Search.." id="myInput1" onkeyup="filterFunction1()">
+          <a href="#about">Drake</a>
+          <a href="#support">Dominic Fike</a>
+          <a href="#base">Fergie</a>
+          <a href="#blog">Frank Ocean</a>
+          <a href="#support">Red Hot Chili Pepper</a>
+          <a href="#contact">SZA</a>
+          <a href="#custom">The 1975</a>
+        </div>
+      </div>
       <h2 id = "artist-name" style = "text-align: center;"> The 1975 </h2>
       <img id = "artist-image" src="/images/example-1975.jpeg" alt="artist-picture" class = "center img">
       <p class = "center"> Artists: Matty Healy, Ross MacDonald, George Daniel, Adam Hann</p>

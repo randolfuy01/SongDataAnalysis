@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-radar.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content= "text/html;charset=UTF-8">
@@ -13,6 +15,7 @@
       <div id = "navigation bar">
         <nav>
           <ul>
+            <img src="/images/matchify_transparent.gif" alt="Logo" width="200" height="200">
             <li><a href = "index.html">Home</a></li>
             <li><a href = "artist.html">Artist</a></li>
             <li><a href = "artists_comparison.html"> Artist Comparison</a></li>
@@ -25,19 +28,29 @@
       </div>
     </header>
     <div id = "container">
-      <section>
+      <section> 
+        <div class="dropdown1">
+          <button onclick="myFunction1()" class="dropbtn1">Search Song</button>
+          <div id="myDropdown1" class="dropdown-content1">
+            <input type="text" placeholder="Search.." id="myInput1" onkeyup="filterFunction1()">
+            <a href="#about">OK!</a>
+            <a href="#support">Quantum Physic</a>
+            <a href="#base">Fergie</a>
+            <a href="#blog">Frank Ocean</a>
+            <a href="#support">Red Hot Chili Pepper</a>
+            <a href="#contact">SZA</a>
+            <a href="#custom">The 1975</a>
+          </div>
+        </div>
         <h2 id = "song-name" style = "text-align: center;"> Surround Sound </h2>
         <img id = "song-image" src="/images/JIDalbum.png" alt="song-picture" class = "center img">
         <p class = "centered_text"> Artists: JID, 21 Savage, Baby Tate</p>
         <p class = "centered_text"> Album: The Forever Story</p>
         <p class = "centered_text"> Music Type: Rap</p>
-        <p class = "centered_text"> Danceability: 55%</p>
-        <p class = "centered_text"> Energy: 65%</p>
-        <p class = "centered_text"> Speechiness: 75%</p>
-        <p class = "centered_text"> Acousticness: 75%</p>
-        <p class = "centered_text"> Instrumentalness: 60%</p>
-        <p class = "centered_text"> Liveness: 60%</p>
-        <p class = "centered_text"> Valence: 60%</p>
+        <div id = "song_chart">
+
+        </div>
+        
 
         <article>
           <table>
@@ -61,12 +74,14 @@
         </article>
       </section> 
     </div>
-    <div id = "song_chart">
-
-    </div>
+    
     <div id = "footer">
 
     </div>
   </body>
+  <script src = "song.js">
+    anyChart.onDocumentReady(function() {
+      });
+  </script>
   <script src="index.js"></script>
 </html>
