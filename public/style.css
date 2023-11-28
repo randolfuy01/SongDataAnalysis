@@ -391,3 +391,33 @@ nav a:hover {
     margin-bottom: 10px; /* Adds some space between the image and the bio */
 }
 
+.quadrants {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* two columns */
+    grid-template-rows: 1fr 1fr; /* two rows */
+    gap: 20px; /* space between quadrants */
+    padding: 20px; /* padding around the grid */
+    height: 100vh; /* adjust as needed */
+}
+
+.developer {
+    background-color: #f3f3f3; /* light grey background, adjust as needed */
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.developer img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%; /* circular images */
+}
+
+
+@media (max-width: 768px) {
+    .quadrants {
+        grid-template-columns: 1fr; /* stack them in single column on smaller screens */
+    }
+}
