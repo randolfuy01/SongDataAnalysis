@@ -5,7 +5,6 @@ var path = require('path');
 var express = require('express');
 var app = express();
 const fs = require('fs');
-
 var StaticDirectory = path.join(__dirname, 'public');
 
 app.use(express.static(StaticDirectory));

@@ -100,11 +100,25 @@ function updateChart() {
     const compare1 = document.getElementById("compare1Dropdown").value;
     const compare2 = document.getElementById("compare2Dropdown").value;
 
+    const Title1 = document.getElementById("Title1");
+    const Title2 = document.getElementById("Title2");
+
+    if (Title1) {
+        Title1.textContent = "Artist: " + compare1;
+    } else {
+        console.log('Element with id "Title1" not found');
+    }
+
+    if (Title2) {
+        Title2.textContent = "Artist: " + compare2;
+    } else {
+        console.log('Element with id "Title2" not found');
+    }
+
     // Fetch array data from the dictionary
     const arrayData1 = artists[compare1];
     const arrayData2 = artists[compare2];
-    console.log(arrayData1);
-    console.log(arrayData2);
+
     // Call the chart creation function
     const chartContainer = document.getElementById("spider_container");
     chartContainer.innerHTML = '';
@@ -124,17 +138,21 @@ function createComparisonRadarChart(compare1, compare2, arrayData1, arrayData2) 
         .maximum(100)
         .ticks({'interval':20});
 
-    song_chart.line(arrayData1)
-    song_chart.line(arrayData2)
-
-    song_chart.width = "500px"
-    song_chart.height = "500px"
+    song_chart.width = "500px";
+    song_chart.height = "500px";
     song_chart.yGrid().palette(["white"]);
-    song_chart.area(arrayData1).name(compare1).markers(true).fill("#79AC78", 0.3).stroke("#79AC78")
-    song_chart.area(arrayData2).name(compare2).markers(true).fill("#B0D9B1", 0.3).stroke("#B0D9B1")
+
+    // Set names for area series
+    var areaSeries1 = song_chart.area(arrayData1);
+    areaSeries1.name(compare1).markers(true).fill("#79AC78", 0.3).stroke("#79AC78");
+
+    var areaSeries2 = song_chart.area(arrayData2);
+    areaSeries2.name(compare2).markers(true).fill("#B0D9B1", 0.3).stroke("#B0D9B1");
+
     song_chart.container('spider_container');
-    // initiate chart drawing
+
+    // Initiate chart drawing
     song_chart.draw();
 
     currentChart = song_chart;
-}
+};
