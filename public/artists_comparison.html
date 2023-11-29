@@ -30,18 +30,9 @@
     <div id = "container">
       <div class="row">
         <div class="column">
-          <div class="dropdown1">
-            <button onclick="myFunction1()" class="dropbtn1">Search Artist 1...</button>
-            <div id="myDropdown1" class="dropdown-content1">
-              <input type="text" placeholder="Search.." id="myInput1" onkeyup="filterFunction1()">
-              <a href="#about">Drake</a>
-              <a href="#support">Dominic Fike</a>
-              <a href="#base">Fergie</a>
-              <a href="#blog">Frank Ocean</a>
-              <a href="#support">Red Hot Chili Pepper</a>
-              <a href="#contact">SZA</a>
-              <a href="#custom">The 1975</a>
-            </div>
+          <div>
+            <label for="compare1Dropdown">Choose comparison 1:</label>
+            <select id="compare1Dropdown"></select>
           </div>
 
           <h2 class = "centered_text"> Kanye West </h2>
@@ -60,18 +51,9 @@
         </p>
       </div>
         <div class="column">
-          <div class="dropdown2">
-            <button onclick="myFunction2()" class="dropbtn2">Search Artist 2...</button>
-            <div id="myDropdown2" class="dropdown-content2">
-              <input type="text" placeholder="Search.." id="myInput2" onkeyup="filterFunction2()">
-              <a href="#about">Drake</a>
-              <a href="#support">Dominic Fike</a>
-              <a href="#base">Fergie</a>
-              <a href="#blog">Frank Ocean</a>
-              <a href="#support">Red Hot Chili Pepper</a>
-              <a href="#contact">SZA</a>
-              <a href="#custom">The 1975</a>
-            </div>
+          <div>
+            <label for="compare2Dropdown">Choose comparison 2:</label>
+            <select id="compare2Dropdown"></select>
           </div>
 
 
@@ -99,8 +81,6 @@
     </div>
     <div id = "footer">
     </div>
-    <script src="artists_comparison.js">
-      anyChart.onDocumentReady(function() {
-      });
+    <script type = "module" src="artists_comparison.js">
     </script>
 </html>
