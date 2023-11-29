@@ -23,7 +23,7 @@ const songs = {
         {x: "valence", value: 30},
         {x: "energy",value: 75},
     ], 
-    "Righteous Melody" : [
+    "Unchained Melody" : [
         {x: "frequency", value: 65},
         {x: "tempo", value: 60},
         {x: "accoustic", value: 10},
@@ -47,7 +47,7 @@ const songs = {
         {x: "valence", value: 30},
         {x: "energy",value: 75},
     ], 
-    "Peaces" : [
+    "Peaches" : [
         {x: "frequency", value: 65},
         {x: "tempo", value: 60},
         {x: "accoustic", value: 10},
@@ -65,6 +65,32 @@ const songs = {
     ]
 };
 
+const songsInfo = {
+    "Nights" : [
+        "Frank Ocean", 2435234, "Blonde"
+    ],
+    "Bed Peace" : [
+        "Jhene Aiko", 653221, "Sail Out"
+    ], 
+    "Run BTS" : [
+        "BTS", 1254222
+    ], 
+    "Unchained Melody" : [
+        "The Righteous Brothers", 978432, "N/A"
+    ], 
+    "Runaway" : [
+        "Kanye", 7584920, "My Beautiful Dark Twisted Fantasy"
+    ], 
+    "What is Love" : [
+        "Twice", 120398, "Summer Nights"
+    ], 
+    "Peaches" : [
+        "Kai", 54390, "Peaches"
+    ], 
+    "Fein" : [
+        "Travis Scott", 234516, "Utopia"
+    ]
+};
 const songList= Object.keys(songs);
 
 // Keys of the dictionary as items for the dropdowns
@@ -101,23 +127,65 @@ function updateChart() {
 
     const Title1 = document.getElementById("Title1");
     const Title2 = document.getElementById("Title2");
-    console.log(Title1)
-    console.log(Title2)
+
     if (Title1) {
-        Title1.textContent = "Artist: " + compare1;
+        Title1.textContent = "Song Name: " + compare1;
     } else {
         console.log('Element with id "Title1" not found');
     }
 
     if (Title2) {
-        Title2.textContent = "Artist: " + compare2;
+        Title2.textContent = "Song Name: " + compare2;
     } else {
         console.log('Element with id "Title2" not found');
-    }
+    };
 
+    const Artist1 = document.getElementById("Artist1");
+    const Artist2 = document.getElementById("Artist2");
+
+    if (Artist1) {
+        Artist1.textContent = "Artist: " + songsInfo[compare1][0];
+    } else {
+        console.log('Element with id "Artist1" not found');
+    };
+
+    if (Artist2) {
+        Artist2.textContent = "Artist: " + songsInfo[compare2][0];
+    } else {
+        console.log('Element with id "Artist2" not found');
+    };
+
+    const Views1 = document.getElementById("Views1");
+    const Views2 = document.getElementById("Views2");
+
+    if (Views1) {
+        Views1.textContent = "Artist: " + songsInfo[compare1][1];
+    } else {
+        console.log('Element with id "Views1" not found');
+    };
+
+    if (Views2) {
+        Views2.textContent = "Artist: " + songsInfo[compare2][1];
+    } else {
+        console.log('Element with id "Views2" not found');
+    };
+
+    const Album1 = document.getElementById("Album1");
+    const Album2 = document.getElementById("Album2");
     // Fetch array data from the dictionary
     const arrayData1 = songs[compare1];
     const arrayData2 = songs[compare2];
+    if (Album1) {
+        Album1.textContent = "Album: " + songsInfo[compare1][2];
+    } else {
+        console.log('Element with id "Album1" not found');
+    };
+
+    if (Album2) {
+        Album2.textContent = "Album: " + songsInfo[compare2][2];
+    } else {
+        console.log('Element with id "Album2" not found');
+    };
 
     // Call the chart creation function
     const chartContainer = document.getElementById("spider_container");
