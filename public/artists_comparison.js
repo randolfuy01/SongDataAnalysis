@@ -67,9 +67,9 @@ const artists = {
 };
 
 const artistsInfo = {
-    "Drake" : ["Toronto, Canada", 95, "rap"],
-    "Kanye" : ["Atlanta, United States", 95, "rap"],
-    "The 1975" : ["Sydney, Autralia", 85, "Alternative pop"],
+    "Drake" : ["Toronto, Canada", 95, "Rap"],
+    "Kanye" : ["Atlanta, United States", 95, "Rap"],
+    "The 1975" : ["Sydney, Autralia", 85, "Alternative Pop"],
     "SZA" : ["Los Angeles, United States", 89, "RnB"],
     "Elvis" : ["Memphis, United States", 92, "Classic Rock"],
     "Lana Del Rey" : ["Chicago, United States", 90, "Pop"],
