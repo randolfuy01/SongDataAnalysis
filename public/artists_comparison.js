@@ -105,6 +105,14 @@ createDropdownOptions(items, "compare2Dropdown");
 document.getElementById("compare1Dropdown").addEventListener("change", updateChart);
 document.getElementById("compare2Dropdown").addEventListener("change", updateChart);
 
+async function fetchArtistInfo(artistName) {
+    const response = await fetch(`/artist-info/${artistName}`);
+    console.log("fetch successful");
+    const data = await response.text();
+    console.log(data);
+    return data;
+}
+
 function updateChart() {
     // Fetch selected values
     const compare1 = document.getElementById("compare1Dropdown").value;
@@ -126,6 +134,31 @@ function updateChart() {
         console.log('Element with id "Title2" not found');
     }
     
+    // Updates Description for Artists in real time
+    const Description1 = document.getElementById("Description1");
+    const Description2 = document.getElementById("Description2");
+
+    if (Description1) {
+        fetchArtistInfo(compare1)
+            .then(data => {
+                Description1.textContent = data; // Ensure assignment is inside .then()
+            })
+            .catch(error => console.error('Error fetching artist info for Description1:', error));
+        } else {
+            console.log('Element with id "Description1" not found');
+        }
+
+    if (Description2) {
+        fetchArtistInfo(compare2)
+            .then(data => {
+                Description2.textContent = data; // Ensure assignment is inside .then()
+            })
+            .catch(error => console.error('Error fetching artist info for Description2:', error));
+        } else {
+            console.log('Element with id "Description2" not found');
+        }
+
+
     // Updates Location for Artists in real time
     const Location1 = document.getElementById("Location1");
     const Location2 = document.getElementById("Location2");
@@ -145,7 +178,7 @@ function updateChart() {
     // Updates Popularity for Aritsts in real time
     const Popularity1 = document.getElementById("Popularity1");
     const Popularity2 = document.getElementById("Popularity2");
-    if (Location1) {
+    if (Popularity1) {
         Popularity1.textContent = "Popularity: " + artistsInfo[compare1][1];
     } else {
         console.log('Element with id "Popularity1" not found');
@@ -157,6 +190,7 @@ function updateChart() {
         console.log('Element with id "Popularity2" not found');
     }
 
+    // Updating Music Type
     const Music1 = document.getElementById("Music1");
     const Music2 = document.getElementById("Music2");
     if (Music1) {
@@ -178,6 +212,7 @@ function updateChart() {
     // Call the chart creation function
     const chartContainer = document.getElementById("spider_container");
     chartContainer.innerHTML = '';
+    
     createComparisonRadarChart(compare1, compare2, arrayData1, arrayData2);
 }
 

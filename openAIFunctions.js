@@ -1,7 +1,6 @@
-
 const OpenAI = require("openai");
 const openai = new OpenAI({
-  apiKey: "",
+  apiKey: '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',
 });
 
 async function getArtistInformation(artist) {
@@ -12,8 +11,7 @@ async function getArtistInformation(artist) {
             { role: "user", content: "Describe who the artist " + artist + " is in 3 sentences."}
         ],
     });
-    response = completion.choices[0].message.content;
-    console.log(response)
+    const response = completion.choices[0].message.content;
     return response;
 }
 
@@ -25,10 +23,11 @@ async function getSongInformation(song) {
             { role: "user", content: "Desicribe what the song " + song + " is about in 3 sentences."}
         ],
     });
-    response = completion.choices[0].message.content;
-    console.log(response);
+    const response = completion.choices[0].message.content;
     return response;
 }
 
-module.exports.getArtistInformation = getArtistInformation;
-module.exports.getSongInformation = getSongInformation;
+module.exports = {
+    getArtistInformation,
+    getSongInformation
+};
