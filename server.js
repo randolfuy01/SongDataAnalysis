@@ -1,4 +1,4 @@
-const openAIFunctions = require('./openAIFunctions.js');
+const openAIFunctions = require('./Queries/openAIFunctions.js');
 const getArtistInformation = openAIFunctions.getArtistInformation;
 const getSongInformation = openAIFunctions.getSongInformation;
 
@@ -24,7 +24,7 @@ app.get('/artist-info/:artist', async (req, res) => {
       res.send(info);
     } catch (error) {
       console.error(error); // Log the error for debugging
-      res.status(500).send('Error retrieving artist information');
+      res.status(500).send('Error retrieving artist description');
     }
   });
   
@@ -35,6 +35,7 @@ app.get('/artist-info/:artist', async (req, res) => {
       res.send(info);
     } catch (error) {
       console.error(error); // Log the error for debugging
-      res.status(500).send('Error retrieving song information');
+      res.status(500).send('Error retrieving song description');
     }
   });
+
