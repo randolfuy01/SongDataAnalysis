@@ -1,3 +1,4 @@
+import { createComparisonRadarChart } from "./radar.js";
 
 const artists = {
     "Drake" : [
@@ -78,11 +79,7 @@ const artistsInfo = {
 };
 const artistList= Object.keys(artists);
 
-// Keys of the dictionary as items for the dropdowns
-const items = Object.keys(artistList);
-
-// Function to create dropdown options
-function createDropdownOptions(arr, dropdownId) {
+export function createDropdownOptions(arr, dropdownId) {
     const dropdown = document.getElementById(dropdownId);
 
     // Clear existing options
@@ -95,7 +92,10 @@ function createDropdownOptions(arr, dropdownId) {
         option.textContent = key; // Set the text to the key of the dictionary
         dropdown.appendChild(option);
     });
-}
+};
+
+// Keys of the dictionary as items for the dropdowns
+const items = Object.keys(artistList);
 
 // Initialize dropdowns
 createDropdownOptions(items, "compare1Dropdown");
@@ -215,35 +215,3 @@ function updateChart() {
     
     createComparisonRadarChart(compare1, compare2, arrayData1, arrayData2);
 }
-
-var currentChart = null;
-
-function createComparisonRadarChart(compare1, compare2, arrayData1, arrayData2) {
-    // CREATING THE CHART 
-    var song_chart = anychart.radar();
-    song_chart.title("Vibe Comparison")
-        .legend(true);
-
-    song_chart.yScale()
-        .minimum(0)
-        .maximum(100)
-        .ticks({'interval':20});
-
-    song_chart.width = "500px";
-    song_chart.height = "500px";
-    song_chart.yGrid().palette(["white"]);
-
-    // Set names for area series
-    var areaSeries1 = song_chart.area(arrayData1);
-    areaSeries1.name(compare1).markers(true).fill("#79AC78", 0.3).stroke("#79AC78");
-
-    var areaSeries2 = song_chart.area(arrayData2);
-    areaSeries2.name(compare2).markers(true).fill("#B0D9B1", 0.3).stroke("#B0D9B1");
-
-    song_chart.container('spider_container');
-
-    // Initiate chart drawing
-    song_chart.draw();
-
-    currentChart = song_chart;
-};

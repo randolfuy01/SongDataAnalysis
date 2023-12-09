@@ -12,21 +12,34 @@
   </head>
   <body>
     <header>
-      <div id = "navigation bar">
-        <nav>
-          <ul>
-            <img src="/images/matchify_transparent.gif" alt="Logo" width="200" height="200">
-            <li><a href = "index.html">Home</a></li>
-            <li><a href = "artist.html">Artist</a></li>
-            <li><a href = "artists_comparison.html"> Artist Comparison</a></li>
-            <li><a href = "song.html">Songs</a></li>
-            <li><a href = "song_comparison.html">Compare Songs</a></li>
-            <li><a href = "developers.html">Developers</a></li>
-            <li><a href = "#">User</a></li>
+    <div id = "navigation">
+      <nav>
+        <ul>
+          <div class="Flexbox-container">
+            <li><div class="flexbox-item1 Flexbox Item 1"><img src="/images/matchify_transparent.gif" alt="Logo" width="100" height="100"></div>
+            <li><div class="flexbox-item Flexbox Item "><a href = "index.html">Home</a></div></li>
+            <li><div class="flexbox-item Flexbox Item "><a href = "artist.html">Artist</a></li>
+            <li><div class="flexbox-item Flexbox Item "><a href = "artists_comparison.html"> Artist Comparison</a></li>
+            <li><div class="flexbox-item Flexbox Item "><a href = "song.html">Songs</a></li>
+            <li><div class="flexbox-item Flexbox Item "><a href = "song_comparison.html">Compare Songs</a></li>
+            <li><div class="flexbox-item Flexbox Item "><a href = "developers.html">Developers</a></li>
+            <li><div class="flexbox-item Flexbox Item "><a href = "#">User</a></li>
+          </div>
+          <!--
+          <li><img src="images/matchify_transparent.gif" alt="Logo" width="100" height="100">
+          <li><a href = "index.html">Home</a></li>
+          <li><a href = "artist.html">Artist</a></li>
+          <li><a href = "artists_comparison.html"> Artist Comparison</a></li>
+          <li><a href = "song.html">Songs</a></li>
+          <li><a href = "song_comparison.html">Compare Songs</a></li>
+          <li><a href = "developers.html">Developers</a></li>
+          <li><a href = "#">User</a></li>
+          -->
           </ul>
-        </nav>
-      </div>
-    </header>
+      </nav>
+    </div>
+  </header>
+  <body>
     <div id = "container">
       <section> 
         <div class="dropdown1">
@@ -78,10 +91,9 @@
     <div id = "footer">
 
     </div>
+    <script src="./scripts/page_songs.js">
+      anyChart.onDocumentReady(function() {
+    });
+    </script>
   </body>
-  <script src = "song.js">
-    anyChart.onDocumentReady(function() {
-      });
-  </script>
-  <script src="index.js"></script>
 </html>

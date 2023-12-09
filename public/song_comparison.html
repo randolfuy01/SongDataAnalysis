@@ -11,22 +11,25 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <header>
-      <div id = "navigation">
-        <nav>
-          <ul>
-            <img src="/images/matchify_transparent.gif" alt="Logo" width="200" height="200">
-            <li><a href = "index.html">Home</a></li>
-            <li><a href = "artist.html">Artist</a></li>
-            <li><a href = "artists_comparison.html"> Artist Comparison</a></li>
-            <li><a href = "song.html">Songs</a></li>
-            <li><a href = "song_comparison.html">Compare Songs</a></li>
-            <li><a href = "developers.html">Developers</a></li>
-            <li><a href = "#">User</a></li>
+   <header>
+    <div id = "navigation">
+      <nav>
+        <ul>
+          <div class="Flexbox-container">
+            <li><div class="flexbox-item1 Flexbox Item 1"><img src="/images/matchify_transparent.gif" alt="Logo" width="100" height="100"></div>
+            <li><div class="flexbox-item Flexbox Item "><a href = "index.html">Home</a></div></li>
+            <li><div class="flexbox-item Flexbox Item "><a href = "artist.html">Artist</a></li>
+            <li><div class="flexbox-item Flexbox Item "><a href = "artists_comparison.html"> Artist Comparison</a></li>
+            <li><div class="flexbox-item Flexbox Item "><a href = "song.html">Songs</a></li>
+            <li><div class="flexbox-item Flexbox Item "><a href = "song_comparison.html">Compare Songs</a></li>
+            <li><div class="flexbox-item Flexbox Item "><a href = "developers.html">Developers</a></li>
+            <li><div class="flexbox-item Flexbox Item "><a href = "#">User</a></li>
+          </div>
           </ul>
-        </nav>
-      </div>
-    </header>
+      </nav>
+    </div>
+  </header>
+  <body>
     <div id = "container">
       <h2 style="text-align: center;">Song Comparison</h2>
       <p style="text-align: center;">"Welcome to our Song Comparison Page, your gateway to the diverse universe of music. 
@@ -71,7 +74,7 @@
     <div id = "footer">
     </div>
   </body>
-	<script src = "song_comparison.js">
+	<script src = "./scripts/page_songs_comparison.js">
     anyChart.onDocumentReady(function() {
       });
   </script>
