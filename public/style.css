@@ -5,13 +5,43 @@ body {
     margin: 0;
     font-family: 'Times New Roman', Times, serif;
     font-weight: 400;
-    background-color: white;
+    background-color: rgba(36, 60, 40, 1);
     font-family: Arial, sans-serif;
 }
 
 h1 {
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
+    color: #E5E5E5;
+    font-family: Outfit;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+    /* 70.4px */
+    text-transform: capitalize;
+    text-wrap: balance;
+    word-wrap: break-word;
+}
+
+h2 {
+    color: #E5E5E5;
+    font-size: 48px;
+    font-family: Outfit;
+    font-weight: 700;
+    text-transform: capitalize;
+    word-wrap: break-word;
+    font-style: normal;
+    line-height: 110%;
+    /* 70.4px */
+    text-transform: capitalize;
+    text-wrap: balance;
+}
+p1 {
+    color: white;
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 400;
+    line-height: 27.50px;
+    word-wrap: break-word
 }
 
 .navigation {
@@ -20,7 +50,7 @@ h1 {
 }
 
 header {
-    background: #45474B;
+    background: transparent;
     color: white;
     width: 100%;
     margin: 0;
@@ -28,18 +58,18 @@ header {
 }
 
 header::after {
-    
+
     /*
     content: '';
     display: table;
     clear: none;
     */
 }
-    
-    
+
+
 
 nav {
-    display: inline-block;
+    display: inline-flex;
 }
 
 nav ul {
@@ -76,8 +106,9 @@ nav a {
     text-decoration: none;
     
 }
-nav img{
-    width: 75px;  
+
+nav img {
+    width: 75px;
     height: 75px;
     object-fit: scale-down;
     margin-right: 10px;
@@ -89,30 +120,73 @@ nav a:hover {
     color: black;
 }
 
-/*End of Basic Overall Arching CSS*/
-
- /*Flex boxes*/
-.flexbox-container{
-    display: flex;
-    flex-wrap:nowrap;
-    flex-direction: row;
-    justify-content: space-around;
+.FillButton {
+    display: inline-block; /*display: inline-flex;*/
+    background-color: #B8EF73;
+    border: 3px solid rgba(36, 60, 40, 1);
+    color: white;
+    height: 100%;
+    width: fit-content;
+    padding: auto;
+    font-size: 20px;
+    margin: 0px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 40px;
+    line-height: 27px;
+    font-weight: 600;  
+    padding-left: 46px; 
+    padding-right: 46px;
+    padding-top: 13px; 
+    padding-bottom: 13px; 
+    justify-content: center; 
     align-items: center;
-    height:fit-content;
+    gap: 10px; 
+     
+}
+.ghost-button { 
+    display: inline-block; 
+    background: transparent;
+    border: 3px solid #B8EF73; 
+    color: white; 
+    width: fit-content; 
+    padding-left: 10px;
+    padding: auto; 
+    font-size: 20px;
+    margin: 0px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 40px;
+    line-height: 27px;
+    font-weight: 600;  
+    padding-left: 46px; 
+    padding-right: 46px;
+    padding-top: 13px; 
+    padding-bottom: 13px; 
+    justify-content: center; 
+    align-items: center;
+    gap: 10px; 
+     
 }
 
-.flexbox-item{
-    width:fit-content;
-    margin:30px;
-    flex-shrink: 1;
-    flex-grow: 1;
+/*End of Basic Overall Arching CSS*/
 
+/*Flex boxes*/
+.flexbox-container {
+    display: flex;
+}
+
+.flexbox-item {
+    width: fit-content;
+    margin-top: 35px;
+    padding-inline-start: 20px;
     /*
     border: 3px solid black;
     background-color: white;
     */
 }
-.flexbox-item1{
+
+.flexbox-item1 {
     /*
     min-height: 100px;
     */
@@ -120,9 +194,67 @@ nav a:hover {
     min-height: 100px;
     flex-shrink: 1;
     flex-grow: 1;
+    
+}
+/* for matchify text in*/
+.flexbox-item2 {
+    /*
+    min-height: 100px;
+    */
+    margin-top: 35px;
+    margin-right: 100px;
+    float: left;
+    min-height: 100px;
+    flex-shrink: 1;
+    flex-grow: 1;
+    color: white;
+    font-size: 20px;
+    font-family: Outfit;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 27.50px;
+    word-wrap: break-word;
+    align-self: baseline;
+}
+.flexbox-container2 {
+    display: flex;
+    width: fit-content;
+    flex-wrap: NOwrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+    background-color: #04AA6D;
+    background: green;
 
 }
 
+.flexbox-itemhalf1 {
+    /*
+    min-height: 100px;
+    */
+    flex: 1;
+    float: left;
+    width: 40%;
+    min-height: 50px;
+    margin-left: 9.5%;
+}
+
+.flexbox-itemhalf2 {
+    /*
+    min-height: 100px;
+    */
+    flex: 1;
+    width: 40%;
+    float: inline-end;
+    min-height: 50px;
+    flex-shrink: 0;
+    flex-grow: 1;
+    align-self: flex-start;
+    margin-right: 9.5%;
+
+}
+
+/* flexbox end*/
 
 
 
@@ -136,7 +268,7 @@ nav a:hover {
     margin-right: auto;
     width: 15%;
     height: 15%;
-  }
+}
 
 .artist-description {
     padding-left: 25%;
@@ -147,13 +279,13 @@ nav a:hover {
 }
 
 
-.simple-bar-chart{
+.simple-bar-chart {
     --line-count: 8;
     --line-color: currentcolor;
     --line-opacity: 0.25;
     --item-gap: 2%;
     --item-default-color: #060606;
-    
+
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -164,13 +296,14 @@ nav a:hover {
     gap: var(--item-gap);
     align-items: end;
     padding-inline: var(--item-gap);
-    --padding-block: 1.5rem; /*space for labels*/
+    --padding-block: 1.5rem;
+    /*space for labels*/
     padding-block: var(--padding-block);
     position: relative;
     isolation: isolate;
-  }
-  
-.simple-bar-chart::after{
+}
+
+.simple-bar-chart::after {
     content: "";
     position: absolute;
     inset: var(--padding-block) 0;
@@ -182,17 +315,31 @@ nav a:hover {
     opacity: var(--line-opacity);
 }
 
-.simple-bar-chart > .item{
+.simple-bar-chart>.item {
     height: calc(1% * var(--val));
     background-color: var(--clr, var(--item-default-color));
     position: relative;
     animation: item-height 1s ease forwards
 }
-@keyframes item-height { from { height: 0 } }
-  
-  .simple-bar-chart > .item > * { position: absolute; text-align: center }
-  .simple-bar-chart > .item > .label { inset: 100% 0 auto 0 }
-  .simple-bar-chart > .item > .value { inset: auto 0 100% 0 }
+
+@keyframes item-height {
+    from {
+        height: 0
+    }
+}
+
+.simple-bar-chart>.item>* {
+    position: absolute;
+    text-align: center
+}
+
+.simple-bar-chart>.item>.label {
+    inset: 100% 0 auto 0
+}
+
+.simple-bar-chart>.item>.value {
+    inset: auto 0 100% 0
+}
 
 .row {
     display: flex;
@@ -209,19 +356,22 @@ nav a:hover {
 
 .developer {
     display: flex;
-    align-items: center; /* vertically aligns items in the center */
+    align-items: center;
+    /* vertically aligns items in the center */
     margin-bottom: 20px;
 }
 
 .developer img {
-    width: 150px;  
+    width: 150px;
     height: 150px;
     object-fit: cover;
-    margin-right: 20px; /* to give space between image and bio */
+    margin-right: 20px;
+    /* to give space between image and bio */
 }
 
 .developer p {
-    flex: 1; /* allows the paragraph to take remaining space */
+    flex: 1;
+    /* allows the paragraph to take remaining space */
 }
 
 .centered_text {
@@ -235,80 +385,80 @@ nav a:hover {
 /* This is for the artists comparison page */
 
 #artistInput {
-    background-image: url('/images/search-icon.png'); 
+    background-image: url('/images/search-icon.png');
     background-size: 20px 20px;
-    background-position: 10px 12px; 
-    background-repeat: no-repeat; 
-    width: 100%; 
-    font-size: 16px; 
-    padding: 12px 20px 12px 40px; 
-    border: 1px solid #ddd; 
-    margin-bottom: 12px; 
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
 }
-  
+
 #artist_search {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
-  
+
 #artist_search li a {
-    border: 1px solid #ddd; 
-    margin-top: -1px; 
-    background-color: #f6f6f6; 
-    padding: 12px; 
-    text-decoration: none; 
-    font-size: 18px; 
-    color: black; 
-    display: block; 
+    border: 1px solid #ddd;
+    margin-top: -1px;
+    background-color: #f6f6f6;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block;
 }
-  
+
 #artist_search li a:hover:not(.header) {
-    background-color: #eee; 
+    background-color: #eee;
 }
 
 /* This is for the song comparison page */
 #songInput {
-    background-image: url('/images/search-icon.png'); 
+    background-image: url('/images/search-icon.png');
     background-size: 20px 20px;
-    background-position: 10px 12px; 
-    background-repeat: no-repeat; 
-    width: 100%; 
-    font-size: 16px; 
-    padding: 12px 20px 12px 40px; 
-    border: 1px solid #ddd; 
-    margin-bottom: 12px; 
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
 }
-  
+
 #song_search {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
-  
+
 #song_search li a {
-    border: 1px solid #ddd; 
-    margin-top: -1px; 
-    background-color: #f6f6f6; 
-    padding: 12px; 
-    text-decoration: none; 
-    font-size: 18px; 
-    color: black; 
-    display: block; 
+    border: 1px solid #ddd;
+    margin-top: -1px;
+    background-color: #f6f6f6;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block;
 }
-  
+
 #song_search li a:hover:not(.header) {
-    background-color: #eee; 
+    background-color: #eee;
 }
 
 
 /* Spider Chart */
 #spider_container {
-    margin-top:auto;
+    margin-top: auto;
     margin-left: 450px;
     margin-right: 450px;
-    width:500px;
-    height:500px;
+    width: 500px;
+    height: 500px;
 }
 
 /* SEARCH BAR 1 */
@@ -320,9 +470,12 @@ nav a:hover {
     border: none;
     cursor: pointer;
 }
-.dropbtn1:hover, .dropbtn:focus {
+
+.dropbtn1:hover,
+.dropbtn:focus {
     background-color: #3e8e41;
 }
+
 #myInput1 {
     box-sizing: border-box;
     background-image: url('searchicon.png');
@@ -333,11 +486,16 @@ nav a:hover {
     border: none;
     border-bottom: 1px solid #ddd;
 }
-#myInput1:focus {outline: 3px solid #ddd;}
+
+#myInput1:focus {
+    outline: 3px solid #ddd;
+}
+
 .dropdown1 {
     position: relative;
     display: inline-block;
 }
+
 .dropdown-content1 {
     display: none;
     position: absolute;
@@ -345,15 +503,22 @@ nav a:hover {
     min-width: 230px;
     border: 1px solid #ddd;
     z-index: 1;
-} 
+}
+
 .dropdown-content1 a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-.dropdown-content1 a:hover {background-color: #f1f1f1}
-.show {display:block;}
+
+.dropdown-content1 a:hover {
+    background-color: #f1f1f1
+}
+
+.show {
+    display: block;
+}
 
 /* SEARCH BAR 2 */
 .dropbtn2 {
@@ -364,9 +529,12 @@ nav a:hover {
     border: none;
     cursor: pointer;
 }
-.dropbtn2:hover, .dropbtn:focus {
+
+.dropbtn2:hover,
+.dropbtn:focus {
     background-color: #3e8e41;
 }
+
 #myInput2 {
     box-sizing: border-box;
     background-image: url('searchicon.png');
@@ -377,11 +545,16 @@ nav a:hover {
     border: none;
     border-bottom: 1px solid #ddd;
 }
-#myInput2:focus {outline: 3px solid #ddd;}
+
+#myInput2:focus {
+    outline: 3px solid #ddd;
+}
+
 .dropdown1 {
     position: relative;
     display: inline-block;
 }
+
 .dropdown-content2 {
     display: none;
     position: absolute;
@@ -389,53 +562,75 @@ nav a:hover {
     min-width: 230px;
     border: 1px solid #ddd;
     z-index: 1;
-} 
+}
+
 .dropdown-content2 a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-.dropdown-content2 a:hover {background-color: #f1f1f1}
-.show {display:block;}
+
+.dropdown-content2 a:hover {
+    background-color: #f1f1f1
+}
+
+.show {
+    display: block;
+}
 
 
 .developers-heading {
-    margin-bottom: 50px; /* Adjusts spacing below the heading */
+    margin-bottom: 50px;
+    /* Adjusts spacing below the heading */
 }
 
 #content {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* This creates 2 even columns */
-    gap: 20px; /* This adds spacing between grid items */
-    max-width: 80%; /* Makes the grid less wide */
-    margin: 0 auto; /* Centers the grid horizontally */
+    grid-template-columns: repeat(2, 1fr);
+    /* This creates 2 even columns */
+    gap: 20px;
+    /* This adds spacing between grid items */
+    max-width: 80%;
+    /* Makes the grid less wide */
+    margin: 0 auto;
+    /* Centers the grid horizontally */
 }
 
 .developer {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers the content horizontally */
-    text-align: center; /* Text centering for better aesthetics */
+    align-items: center;
+    /* Centers the content horizontally */
+    text-align: center;
+    /* Text centering for better aesthetics */
 }
 
 .developer img {
-    margin-bottom: 10px; /* Adds some space between the image and the bio */
+    margin-bottom: 10px;
+    /* Adds some space between the image and the bio */
 }
 
 .quadrants {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* two columns */
-    grid-template-rows: 1fr 1fr; /* two rows */
-    gap: 20px; /* space between quadrants */
-    padding: 20px; /* padding around the grid */
-    height: 100vh; /* adjust as needed */
+    grid-template-columns: 1fr 1fr;
+    /* two columns */
+    grid-template-rows: 1fr 1fr;
+    /* two rows */
+    gap: 20px;
+    /* space between quadrants */
+    padding: 20px;
+    /* padding around the grid */
+    height: 100vh;
+    /* adjust as needed */
 }
 
 .developer {
-    background-color: #f3f3f3; /* light grey background, adjust as needed */
+    background-color: #f3f3f3;
+    /* light grey background, adjust as needed */
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* subtle shadow for depth */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -444,12 +639,14 @@ nav a:hover {
 .developer img {
     max-width: 100%;
     height: auto;
-    border-radius: 50%; /* circular images */
+    border-radius: 50%;
+    /* circular images */
 }
 
 
 @media (max-width: 768px) {
     .quadrants {
-        grid-template-columns: 1fr; /* stack them in single column on smaller screens */
+        grid-template-columns: 1fr;
+        /* stack them in single column on smaller screens */
     }
 }
