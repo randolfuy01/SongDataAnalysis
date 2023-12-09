@@ -15,7 +15,7 @@ h1 {
     font-size: 64px;
     font-style: normal;
     font-weight: 700;
-    line-height: 110%;
+    line-height: 100%;
     /* 70.4px */
     text-transform: capitalize;
     text-wrap: balance;
@@ -30,10 +30,20 @@ h2 {
     text-transform: capitalize;
     word-wrap: break-word;
     font-style: normal;
-    line-height: 110%;
+    line-height: 5%;
     /* 70.4px */
     text-transform: capitalize;
     text-wrap: balance;
+}
+h3 {
+    color: white;
+    font-size: 14px;
+    font-family: Outfit;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 27.50px;
+    letter-spacing: 2.80px;
+    word-wrap: break-word;
 }
 p1 {
     color: white;
