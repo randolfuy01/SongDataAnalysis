@@ -9,6 +9,8 @@
     <meta name = "description" content = "Data Analysis on the different artists and songs on Youtube and Spotify.">
     <title>Song Comparison Page</title>
     <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   </head>
   <body>
    <header>
@@ -16,7 +18,8 @@
       <nav>
         <ul>
           <div class="Flexbox-container">
-            <li><div class="flexbox-item1 Flexbox Item 1"><img src="/images/matchify_transparent.gif" alt="Logo" width="100" height="100"></div>
+            <li><div class="flexbox-item1 Flexbox Item 1"><img src="images/matchify_transparent.gif" alt="Logo" width="100" height="100"></div></li>
+            <li><div class="flexbox-item2 Flexbox Item "><a>Matchify</a></div></li>
             <li><div class="flexbox-item Flexbox Item "><a href = "index.html">Home</a></div></li>
             <li><div class="flexbox-item Flexbox Item "><a href = "artist.html">Artist</a></li>
             <li><div class="flexbox-item Flexbox Item "><a href = "artists_comparison.html"> Artist Comparison</a></li>
@@ -25,13 +28,14 @@
             <li><div class="flexbox-item Flexbox Item "><a href = "developers.html">Developers</a></li>
             <li><div class="flexbox-item Flexbox Item "><a href = "#">User</a></li>
           </div>
-          </ul>
+        </ul>
       </nav>
     </div>
   </header>
   <body>
+    <h1 style="text-align: center;">Song Comparison</h2>
     <div id = "container">
-      <h2 style="text-align: center;">Song Comparison</h2>
+      
       <p style="text-align: center;">"Welcome to our Song Comparison Page, your gateway to the diverse universe of music. 
         Whether you're hunting for the ideal anthem to match your mood, digging for lyrical gems, or exploring the nuances of your 
         favorite tunes, this is the place to be. Join us as we dissect, contrast, and appreciate the melodies that soundtrack our lives. 
@@ -43,10 +47,9 @@
             <select id="compare1Dropdown"></select>
           </div>
 
-          <h1 id ="Title1">Artist Comparison</h1>
-          <img class = "center img" id = "artist-image" src="/images/example-blonde.jpeg" alt="song-picture" style = "width: 150px; 
+          <h1 id = "Artist1">Artist Name </h1>
+          <img class = "center img" id = "artist-image" src="images/example-blonde.jpeg" alt="song-picture" style = "width: 150px; 
           height: 150px; object-fit: cover; object-position: 25% 25%;">
-          <p id = "Artist1">Artist: </p>
           <p id = "Album1">Album: </p>
           <p id = "Views1">Views: </p>
           <a href = "https://open.spotify.com/track/7eqoqGkKwgOaWNNHx90uEZ?si=7ab66c3d30434be3" class = "centered_text" 
@@ -57,10 +60,9 @@
             <label for="compare2Dropdown">Choose comparison 2:</label>
             <select id="compare2Dropdown"></select>
           </div>
-          <h1 id ="Title2">Artist Comparison</h1>
-          <img class = "center img" id = "artist-image" src="/images/example-sail_out.png" alt="song-picture" style = "width: 150px; 
+          <h1 id = "Artist2">Artist Name</h1>
+          <img class = "center img" id = "artist-image" src="images/example-sail_out.png" alt="song-picture" style = "width: 150px; 
           height: 150px; object-fit: cover; object-position: 25% 25%;">
-          <p id = "Artist2">Artist: </p>
           <p id = "Album2">Album: </p>
           <p id = "Views2">Views: </p>
           <a class = "centered_text" href = "https://open.spotify.com/track/5Ck3e6z1bcSCes5gdo0Ddt?si=4a558f1e15b14b7d" 
