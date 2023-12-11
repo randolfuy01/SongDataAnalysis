@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content= "text/html;charset=UTF-8">
+    <meta name = "description" content = "Data Analysis on the different artists and songs on Youtube and Spotify.">
+    <title>User login Page</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <!-- beginning of nav bar -->
+  <header>
+    <div id = "navigation">
+      <nav>
+        <ul>
+          <div class="Flexbox-container">
+            <li><div class="flexbox-item1 Flexbox Item 1"><img src="/images/matchify_transparent.gif" alt="Logo" width="100" height="100"></div>
+            <li><div class="flexbox-item Flexbox Item "><a href = "index.html">Home</a></div></li>
+            <li><div class="flexbox-item Flexbox Item "><a href = "artist.html">Artist</a></li>
+            <li><div class="flexbox-item Flexbox Item "><a href = "artists_comparison.html"> Artist Comparison</a></li>
+            <li><div class="flexbox-item Flexbox Item "><a href = "song.html">Songs</a></li>
+            <li><div class="flexbox-item Flexbox Item "><a href = "song_comparison.html">Compare Songs</a></li>
+            <li><div class="flexbox-item Flexbox Item "><a href = "developers.html">Developers</a></li>
+            <li><div class="flexbox-item Flexbox Item "><a href = "#">User</a></li>
+          </div>
+          </ul>
+      </nav>
+    </div>
+  </header>
+<!-- stop of nav bar -->
+<body>
+<!-- please login and the button-->
+<h2 style="text-align: center;"> please login!!!
+      <br><br>
+  <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+  </h2>
+<!-- make sure the content of the button stay in the button-->
+<div id="id01" class="modal">
+<!-- content of the modal-->
+
+  <!-- animation-->
+  <form class="modal-content animate" action="/action_page.php" method="post">
+    <!-- make sure its in the logins happens after u click the button-->
+      <div class="imgcontainer">
+      <!-- the x button to close the tab-->
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <!-- add an image or delete this line-->
+        <img src="img_avatar2.png" alt="Avatar" class="avatar">
+      </div>
+      <!-- pretty straight forward the following is the for entering username and password-->
+      <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+  
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+          <!-- login button to submit the form-->
+        <button type="submit">Login</button>
+        <!-- we can delete this feature-->
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+      </div>
+      <!-- style-->
+      <div class="container" style="background-color:#f1f1f1">
+      <!-- cancel button-->
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <!-- forget password feature, up to deletion-->
+        <span class="psw">Forgot <a href="#">password?</a></span>
+      </div>
+    </form>
+  </div>
