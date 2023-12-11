@@ -15,18 +15,22 @@
       <div id = "navigation">
         <nav>
           <ul>
-            <img src="/images/matchify_transparent.gif" alt="Logo" width="200" height="200">
-            <li><a href = "index.html">Home</a></li>
-            <li><a href = "artist.html">Artist</a></li>
-            <li><a href = "artists_comparison.html"> Artist Comparison</a></li>
-            <li><a href = "song.html">Songs</a></li>
-            <li><a href = "song_comparison.html">Compare Songs</a></li>
-            <li><a href = "developers.html">Developers</a></li>
-            <li><a href = "#">User</a></li>
-            </ul>
+            <div class="Flexbox-container">
+              <li><div class="flexbox-item1 Flexbox Item 1"><img src="images/matchify_transparent.gif" alt="Logo" width="100" height="100"></div></li>
+              <li><div class="flexbox-item2 Flexbox Item "><a>Matchify</a></div></li>
+              <li><div class="flexbox-item Flexbox Item "><a href = "index.html">Home</a></div></li>
+              <li><div class="flexbox-item Flexbox Item "><a href = "artist.html">Artist</a></li>
+              <li><div class="flexbox-item Flexbox Item "><a href = "artists_comparison.html"> Artist Comparison</a></li>
+              <li><div class="flexbox-item Flexbox Item "><a href = "song.html">Songs</a></li>
+              <li><div class="flexbox-item Flexbox Item "><a href = "song_comparison.html">Compare Songs</a></li>
+              <li><div class="flexbox-item Flexbox Item "><a href = "developers.html">Developers</a></li>
+              <li><div class="flexbox-item Flexbox Item "><a href = "#">User</a></li>
+            </div>
+          </ul>
         </nav>
       </div>
     </header>
+  <body>
     <div id = "container">
       <div class="row">
         <div class="column">
@@ -36,7 +40,7 @@
           </div>
 
           <h1 id ="Title1">Artist Comparison</h1>
-          <img class = "center img" id = "artist-image" src="/images/example-kanye.jpg" alt="artist-picture" style = "width: 150px; 
+          <img class = "center img" id = "artist-image" src="images/example-kanye.jpg" alt="artist-picture" style = "width: 150px; 
           height: 150px; object-fit: cover; object-position: 25% 25%;">
           <p id = "Music1"> Music Type: </p>
           <p id = "Location1"> Location: </p>
@@ -51,7 +55,7 @@
 
 
           <h1 id ="Title2">Artist Comparison</h1>
-          <img class = "center img" id = "artist-image" src="/images/example-drake.jpeg" alt="artist-picture" style = "width: 150px; 
+          <img class = "center img" id = "artist-image" src="images/example-drake.jpeg" alt="artist-picture" style = "width: 150px; 
           height: 150px; object-fit: cover; object-position: 25% 25%;">
           <p id = "Music2"> Music Type: </p>
           <p id = "Location2"> Location</p>
@@ -65,6 +69,6 @@
     </div>
     <div id = "footer">
     </div>
-    <script type="module" src="artists_comparison.js">
+    <script type="module" src="./scripts/page_artists_comparison.js">
     </script>
 </html>
