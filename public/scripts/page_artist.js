@@ -19,6 +19,7 @@ async function fetchArtistLocation(artistName) {
     const data = await response.text();
     return data;
 }
+
 fetchArtistLocation("Drake");
 async function fetchArtistData(artistName) {
     try {

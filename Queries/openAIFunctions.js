@@ -1,6 +1,6 @@
 const OpenAI = require("openai");
 const openai = new OpenAI({
-  apiKey: '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',
+  apiKey: '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',
 });
 
 async function getArtistInformation(artist) {
@@ -57,7 +57,7 @@ async function getArtistLocation(artist) {
     console.log(response);
     return response;
 }
-getArtistLocation("Drake");
+
 module.exports = {
     getArtistInformation,
     getTrackInformation,

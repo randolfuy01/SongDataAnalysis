@@ -13,6 +13,13 @@ async function fetchArtistMusicType(artistName) {
     return data;
 }
 
+async function fetchArtistLocation(artistName) {
+    const response = await fetch(`/artist-location/${artistName}`);
+    console.log("fetch successful" );
+    const data = await response.text();
+    return data;
+}
+
 async function fetchArtistData(artistName) {
     try {
         const response = await fetch(`http://localhost:3000/artist/${artistName}`);
@@ -116,9 +123,9 @@ async function updateChart() {
             .then(data => {
                 Music1.textContent = data; // Ensure assignment is inside .then()
             })
-            .catch(error => console.error('Error fetching artist info for Description1:', error));
+            .catch(error => console.error('Error fetching artist info for Music1: ', error));
     } else {
-            console.log('Element with id "Description1" not found');
+            console.log('Element with id "Music1" not found');
     }
 
     if (Music2) {
@@ -126,9 +133,31 @@ async function updateChart() {
             .then(data => {
                 Music2.textContent = data; // Ensure assignment is inside .then()
             })
-            .catch(error => console.error('Error fetching artist info for Description2:', error));
+            .catch(error => console.error('Error fetching artist info for Music2: ', error));
     } else {
-            console.log('Element with id "Description2" not found');
+            console.log('Element with id "Music2" not found');
+    }
+
+    const Location1 = document.getElementById("Location1");
+    const Location2 = document.getElementById("Location2");
+    if (Location1) {
+        fetchArtistLocation(compare1)
+            .then(data => {
+                Location1.textContent = "Location: " + data; // Ensure assignment is inside .then()
+            })
+            .catch(error => console.error('Error fetching artist info for Location1:', error));
+    } else {
+            console.log('Element with id "Location1" not found');
+    }
+
+    if (Location2) {
+        fetchArtistLocation(compare2)
+            .then(data => {
+                Location2.textContent = "Location: " + data; // Ensure assignment is inside .then()
+            })
+            .catch(error => console.error('Error fetching artist info for Location2:', error));
+    } else {
+            console.log('Element with id "Location2" not found');
     }
     // Updates Description for Artists in real time
     const Description1 = document.getElementById("Description1");
