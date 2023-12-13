@@ -1,4 +1,4 @@
-import { createComparisonRadarChart } from "./radar.js";
+import { createComparisonRadarChart, createSingularChart } from "./radar.js";
 // Async functions 
 async function fetchArtistInfo(artistName) {
     const response = await fetch(`/artist-info/${artistName}`);
@@ -82,86 +82,54 @@ function createDropdownOptions(dropdownId) {
 
 // Initialize dropdowns
 createDropdownOptions("compare1Dropdown");
-createDropdownOptions("compare2Dropdown");
 
 // Event listener for dropdowns change
 document.getElementById("compare1Dropdown").addEventListener("change", updateChart);
-document.getElementById("compare2Dropdown").addEventListener("change", updateChart);
 
 async function updateChart() {
     // Fetch selected values
     const compare1 = document.getElementById("compare1Dropdown").value;
-    const compare2 = document.getElementById("compare2Dropdown").value;
+
 
     // Updates Title for Artists in real time
-    const Title1 = document.getElementById("Title1");
-    const Title2 = document.getElementById("Title2");
+    const Title1 = document.getElementById("artist-name");
 
     if (Title1) {
         Title1.textContent = "Artist: " + compare1;
     } else {
-        console.log('Element with id "Title1" not found');
-    }
-
-    if (Title2) {
-        Title2.textContent = "Artist: " + compare2;
-    } else {
-        console.log('Element with id "Title2" not found');
+        console.log('Element with id "artist-name" not found');
     }
     
     const Music1 = document.getElementById("Music1");
-    const Music2 = document.getElementById("Music2");
     if (Music1) {
         fetchArtistMusicType(compare1)
             .then(data => {
                 Music1.textContent = data; // Ensure assignment is inside .then()
             })
-            .catch(error => console.error('Error fetching artist info for Description1:', error));
+            .catch(error => console.error('Error fetching artist info for Music1: ', error));
     } else {
-            console.log('Element with id "Description1" not found');
+            console.log('Element with id "Music1" not found');
     }
 
-    if (Music2) {
-        fetchArtistMusicType(compare2)
-            .then(data => {
-                Music2.textContent = data; // Ensure assignment is inside .then()
-            })
-            .catch(error => console.error('Error fetching artist info for Description2:', error));
-    } else {
-            console.log('Element with id "Description2" not found');
-    }
     // Updates Description for Artists in real time
-    const Description1 = document.getElementById("Description1");
-    const Description2 = document.getElementById("Description2");
+    const Description1 = document.getElementById("artist-description");
 
     if (Description1) {
         fetchArtistInfo(compare1)
             .then(data => {
                 Description1.textContent = data; // Ensure assignment is inside .then()
             })
-            .catch(error => console.error('Error fetching artist info for Description1:', error));
+            .catch(error => console.error('Error fetching artist info for artist-description:', error));
     } else {
-            console.log('Element with id "Description1" not found');
-    }
-
-    if (Description2) {
-        fetchArtistInfo(compare2)
-            .then(data => {
-                Description2.textContent = data; // Ensure assignment is inside .then()
-            })
-            .catch(error => console.error('Error fetching artist info for Description2:', error));
-        } else {
-            console.log('Element with id "Description2" not found');
+            console.log('Element with id "artist-description" not found');
     }
 
     // Fetch array data from the dictionary
     const arrayData1 = await fetchArtistData(compare1);
-    const arrayData2 = await fetchArtistData(compare2);
     console.log(arrayData1);
-    console.log(arrayData2);
     // Call the chart creation function
     const chartContainer = document.getElementById("spider_container");
     chartContainer.innerHTML = '';
     
-    createComparisonRadarChart(compare1, compare2, arrayData1, arrayData2);
+    createSingularChart(compare1, arrayData1);
 }

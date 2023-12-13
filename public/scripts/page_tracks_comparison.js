@@ -44,7 +44,6 @@ async function fetchTrackData(trackName) {
         }
 }
 
-fetchTrackData("Runaway");
 async function fetchAllTracks() {
     try {
         const response = await fetch('http://localhost:3000/tracks');
