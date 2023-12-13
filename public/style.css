@@ -266,7 +266,21 @@ nav a:hover {
 
 /* flexbox end*/
 
-
+/* Tags */
+.tag {
+    display: inline-block;
+    border-radius: 3px;
+    padding: .2em .5em .3em;
+    border-radius: 2px;
+    background: var(--tag-bg);
+    color: var(--text-color);
+    font-weight: 600;
+    margin: .25em .1em;
+    font-size: 1.2em;
+    border-radius: 4px;
+    background: #B8EF73;
+    color: #000;
+}
 
 .container {
     
