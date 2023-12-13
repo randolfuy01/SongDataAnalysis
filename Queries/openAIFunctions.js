@@ -1,6 +1,6 @@
 const OpenAI = require("openai");
 const openai = new OpenAI({
-  apiKey: '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',
+  apiKey: '',
 });
 
 async function getArtistInformation(artist) {
