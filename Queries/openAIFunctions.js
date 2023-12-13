@@ -1,6 +1,6 @@
 const OpenAI = require("openai");
 const openai = new OpenAI({
-  apiKey: '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',
+  apiKey: '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',
 });
 
 async function getArtistInformation(artist) {
@@ -33,11 +33,18 @@ async function getArtistMusicType(artist) {
         model: "gpt-3.5-turbo",
         messages: [
             { role: "system", content: "You are an assistant for someone looking into music."},
-            { role: "user", content: "Describe what type of musc " + artist + "makes."}
-        ]
-    })
+            { role: "user", content: "Describe what genre of musc " + artist + "makes in 2 words."}
+        ],
+        max_tokens: 3,
+        temperature: 0
+    });
+    const response = completion.choices[0].message.content;
+    console.log(response);
+    return response;
 }
+
 module.exports = {
     getArtistInformation,
-    getTrackInformation
+    getTrackInformation,
+    getArtistMusicType
 };

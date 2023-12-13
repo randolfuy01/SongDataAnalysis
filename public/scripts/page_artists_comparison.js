@@ -6,6 +6,12 @@ async function fetchArtistInfo(artistName) {
     const data = await response.text();
     return data;
 }
+async function fetchArtistMusicType(artistName) {
+    const response = await fetch(`/music-type/${artistName}`);
+    console.log("fetch successful");
+    const data = await response.text();
+    return data;
+}
 
 async function fetchArtistData(artistName) {
     try {
@@ -103,6 +109,27 @@ async function updateChart() {
         console.log('Element with id "Title2" not found');
     }
     
+    const Music1 = document.getElementById("Music1");
+    const Music2 = document.getElementById("Music2");
+    if (Music1) {
+        fetchArtistMusicType(compare1)
+            .then(data => {
+                Music1.textContent = data; // Ensure assignment is inside .then()
+            })
+            .catch(error => console.error('Error fetching artist info for Description1:', error));
+    } else {
+            console.log('Element with id "Description1" not found');
+    }
+
+    if (Music2) {
+        fetchArtistMusicType(compare2)
+            .then(data => {
+                Music2.textContent = data; // Ensure assignment is inside .then()
+            })
+            .catch(error => console.error('Error fetching artist info for Description2:', error));
+    } else {
+            console.log('Element with id "Description2" not found');
+    }
     // Updates Description for Artists in real time
     const Description1 = document.getElementById("Description1");
     const Description2 = document.getElementById("Description2");
@@ -113,9 +140,9 @@ async function updateChart() {
                 Description1.textContent = data; // Ensure assignment is inside .then()
             })
             .catch(error => console.error('Error fetching artist info for Description1:', error));
-        } else {
+    } else {
             console.log('Element with id "Description1" not found');
-        }
+    }
 
     if (Description2) {
         fetchArtistInfo(compare2)
@@ -125,7 +152,7 @@ async function updateChart() {
             .catch(error => console.error('Error fetching artist info for Description2:', error));
         } else {
             console.log('Element with id "Description2" not found');
-        }
+    }
 
     // Fetch array data from the dictionary
     const arrayData1 = await fetchArtistData(compare1);
