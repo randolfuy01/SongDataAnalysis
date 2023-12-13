@@ -32,30 +32,43 @@
     </div>
   </header>
   <body>
+    <div class="dropdown1">
+      <button onclick="myFunction1()" class="dropbtn1">Search Song</button>
+      <div id="myDropdown1" class="dropdown-content1">
+        <input type="text" placeholder="Search.." id="myInput1" onkeyup="filterFunction1()">
+        <a href="#about">OK!</a>
+        <a href="#support">Quantum Physic</a>
+        <a href="#base">Fergie</a>
+        <a href="#blog">Frank Ocean</a>
+        <a href="#support">Red Hot Chili Pepper</a>
+        <a href="#contact">SZA</a>
+        <a href="#custom">The 1975</a>
+      </div>
+    </div>
       <section> 
-        <div class="dropdown1">
-          <button onclick="myFunction1()" class="dropbtn1">Search Song</button>
-          <div id="myDropdown1" class="dropdown-content1">
-            <input type="text" placeholder="Search.." id="myInput1" onkeyup="filterFunction1()">
-            <a href="#about">OK!</a>
-            <a href="#support">Quantum Physic</a>
-            <a href="#base">Fergie</a>
-            <a href="#blog">Frank Ocean</a>
-            <a href="#support">Red Hot Chili Pepper</a>
-            <a href="#contact">SZA</a>
-            <a href="#custom">The 1975</a>
+        
+        
+        <div class="Flexbox-container2">
+          <div class="flexbox-itemhalf1 Flexbox Item 1" style="clear: both;">
+            <h3 id = "artist-name">JID, 21 Savage, Baby Tate</h3>
+            <h2 id = "song-name">Surround Sound</h2>
+            
+          </div>  
+          <div class="flexbox-itemhalf2 Flexbox Item 1">
+            <img id = "song-image" src="./images/JIDalbum.png" alt="song-picture" width="100%" height="70%">
           </div>
         </div>
-        <h2 id = "song-name" style = "text-align: center;"> Surround Sound </h2>
-        <img id = "song-image" src="./images/JIDalbum.png" alt="song-picture" class = "center img">
-        <p class = "centered_text"> Artists: JID, 21 Savage, Baby Tate</p>
-        <p class = "centered_text"> Album: The Forever Story</p>
-        <p class = "centered_text"> Music Type: Rap</p>
-        <div id = "song_chart">
-
+      
+      
+        <p1 style = "clear:both; float: inline-start"> Album: The Forever Story</p1>
+        <p1 style = "float: inline-start"> Music Type: Rap</p1>
+        
+        <div id = "song_chart" style="background: transparent;">
+       
         </div>
 
         <article>
+          <!--
           <table>
             <tr>
               <td>Tempo</td>
@@ -74,6 +87,7 @@
               </td>
             </tr>
           </table>
+          -->
         </article>
       </section> 
     
