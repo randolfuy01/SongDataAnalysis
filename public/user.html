@@ -35,10 +35,11 @@
 <!-- stop of nav bar -->
 <body>
 <!-- please login and the button-->
-<h2 style="text-align: center;"> please login!!!
-      <br><br>
-  <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-  </h2>
+<h2 style="text-align: center;">Click Below To Log In</h2>
+<div style="text-align: center;">
+  <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; text-align: center;">Login</button>
+</div>
+
 <!-- make sure the content of the button stay in the button-->
 <div id="id01" class="modal">
 <!-- content of the modal-->
@@ -50,7 +51,7 @@
       <!-- the x button to close the tab-->
         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
         <!-- add an image or delete this line-->
-        <img src="img_avatar2.png" alt="Avatar" class="avatar">
+        <img src="./images/empty-avatar.jpg" alt="Avatar" class="avatar" width="20%">
       </div>
       <!-- pretty straight forward the following is the for entering username and password-->
       <div class="container">
