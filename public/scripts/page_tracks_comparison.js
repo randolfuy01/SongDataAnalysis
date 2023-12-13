@@ -1,57 +1,59 @@
 import { createComparisonRadarChart } from "./radar.js";
 // Async functions 
-async function fetchArtistInfo(artistName) {
-    const response = await fetch(`/artist-info/${artistName}`);
+async function fetchTrackInfo(trackName) {
+    const response = await fetch(`/track-info/${trackName}`);
     console.log("fetch successful");
     const data = await response.text();
     return data;
 }
 
-async function fetchArtistData(artistName) {
+async function fetchTrackData(trackName) {
     try {
-        const response = await fetch(`http://localhost:3000/artist/${artistName}`);
+        const response = await fetch(`http://localhost:3000/track/${trackName}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        const artistAveragesArray = [];
-        let totalEnergy = 0;
-        let totalAcousticness = 0;
-        let totalValence = 0;
-        let totalSpeechiness = 0;
-        let totalInstrumentalness = 0;
-        let totalLiveness = 0;
+        const trackArray = [];
+        let Energy = 0;
+        let Acousticness = 0;
+        let Valence = 0;
+        let Speechiness = 0;
+        let Instrumentalness = 0;
+        let Liveness = 0;
+        console.log(data)
         data.forEach(element => {
-            totalEnergy += element.Energy;
-            totalAcousticness += element.Acousticness;
-            totalValence += element.Valence;
-            totalSpeechiness += element.Speechiness;
-            totalInstrumentalness += element.Acousticness;
-            totalLiveness += element.Liveness;
+            Energy += element.Energy;
+            Acousticness += element.Acousticness;
+            Valence += element.Valence;
+            Speechiness += element.Speechiness;
+            Instrumentalness += element.Acousticness;
+            Liveness += element.Liveness;
         });
-        artistAveragesArray.push({x: "accoustic", value: parseInt(totalAcousticness/10)});
-        artistAveragesArray.push({x: "valence", value: parseInt(totalValence/10)});
-        artistAveragesArray.push({x: "speechiness", value: parseInt(totalSpeechiness/10)});
-        artistAveragesArray.push({x: "instrumentalness", value: parseInt(totalInstrumentalness/10)});
-        artistAveragesArray.push({x: "energy", value: parseInt(totalEnergy/10)});
-        artistAveragesArray.push({x: "liveness", value: parseInt(totalLiveness/10)})
-        console.log(artistAveragesArray);
-        return artistAveragesArray; // Return the mapped array
+        trackArray.push({x: "accoustic", value: Acousticness});
+        trackArray.push({x: "valence", value: Valence});
+        trackArray.push({x: "speechiness", value: Speechiness});
+        trackArray.push({x: "instrumentalness", value: Instrumentalness});
+        trackArray.push({x: "energy", value: Energy});
+        trackArray.push({x: "liveness", value: Liveness});
+        console.log(trackArray);
+        return trackArray; // Return the mapped array
         } catch (error) {
             console.error('There has been a problem with your fetch operation:', error);
             return []; // Return an empty array or handle error
         }
 }
 
-async function fetchAllArtists() {
+fetchTrackData("Runaway");
+async function fetchAllTracks() {
     try {
-        const response = await fetch('http://localhost:3000/artists');
+        const response = await fetch('http://localhost:3000/tracks');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
         const data = await response.json();
         console.log(data);
-        return data.map(item => item.Artist); // Return the mapped array
+        return data.map(item => item.Track.slice(0,20)); // Return the mapped array
     } catch (error) {
         console.error('There has been a problem with your fetch operation:', error);
         return []; // Return an empty array or handle error
@@ -59,14 +61,14 @@ async function fetchAllArtists() {
 }
 
 // Display Functions
-const artistList = await fetchAllArtists();
+const trackList = await fetchAllTracks();
 function createDropdownOptions(dropdownId) {
     const dropdown = document.getElementById(dropdownId);
     // Clear existing options
     dropdown.innerHTML = "";
 
     // Populate the dropdown with new options from the array
-    artistList.forEach(item => {
+    trackList.forEach(item => {
         const option = document.createElement('option');
         option.value = item; // Set the value to the item in the array
         option.textContent = item; // Set the text to the item in the array
@@ -92,13 +94,13 @@ async function updateChart() {
     const Title2 = document.getElementById("Title2");
 
     if (Title1) {
-        Title1.textContent = "Artist: " + compare1;
+        Title1.textContent = "Song: " + compare1;
     } else {
         console.log('Element with id "Title1" not found');
     }
 
     if (Title2) {
-        Title2.textContent = "Artist: " + compare2;
+        Title2.textContent = "Song: " + compare2;
     } else {
         console.log('Element with id "Title2" not found');
     }
@@ -108,28 +110,28 @@ async function updateChart() {
     const Description2 = document.getElementById("Description2");
 
     if (Description1) {
-        fetchArtistInfo(compare1)
+        fetchTrackInfo(compare1)
             .then(data => {
                 Description1.textContent = data; // Ensure assignment is inside .then()
             })
             .catch(error => console.error('Error fetching artist info for Description1:', error));
-        } else {
-            console.log('Element with id "Description1" not found');
-        }
+    } else {
+        console.log('Element with id "Description1" not found');
+    }
 
     if (Description2) {
-        fetchArtistInfo(compare2)
+        fetchTrackInfo(compare2)
             .then(data => {
                 Description2.textContent = data; // Ensure assignment is inside .then()
             })
             .catch(error => console.error('Error fetching artist info for Description2:', error));
-        } else {
-            console.log('Element with id "Description2" not found');
-        }
+    } else {
+        console.log('Element with id "Description2" not found');
+    }
 
     // Fetch array data from the dictionary
-    const arrayData1 = await fetchArtistData(compare1);
-    const arrayData2 = await fetchArtistData(compare2);
+    const arrayData1 = await fetchTrackData(compare1);
+    const arrayData2 = await fetchTrackData(compare2);
     console.log(arrayData1);
     console.log(arrayData2);
     // Call the chart creation function

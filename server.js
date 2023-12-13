@@ -1,8 +1,5 @@
 const openAIFunctions = require('./Queries/openAIFunctions.js');
 const database = require('./Queries/database.js')
-const getArtistInformation = openAIFunctions.getArtistInformation;
-const getSongInformation = openAIFunctions.getSongInformation;
-const getArtistAverages = database.getArtistAverages;
 
 var port = 3000;
 var path = require('path');
@@ -22,32 +19,40 @@ app.listen(port, () => {
 app.get('/artist-info/:artist', async (req, res) => {
     try {
       const artist = req.params.artist;
-      const info = await getArtistInformation(artist);
+      const info = await openAIFunctions.getArtistInformation(artist);
       res.send(info);
     } catch (error) {
-      console.error(error); // Log the error for debugging
+      console.error(error); 
       res.status(500).send('Error retrieving artist description');
     }
-  });
+});
   
-  app.get('/song-info/:song', async (req, res) => {
-    try {
-      const song = req.params.song;
-      const info = await getSongInformation(song);
-      res.send(info);
-    } catch (error) {
-      console.error(error); // Log the error for debugging
-      res.status(500).send('Error retrieving song description');
-    }
+app.get('/track-info/:track', async (req, res) => {
+  try {
+    const song = req.params.track;
+    const info = await openAIFunctions.getTrackInformation(song); 
+    res.send(info);
+  } catch (error) {
+    console.error(error); // Log the error for debugging
+    res.status(500).send('Error retrieving song description');
+  }
 });
 
-
 // Database Queries
-
 app.get('/artist/:artistName', (req, res) => {
   database.getArtistData(req.params.artistName, (err, result) => {
       if (err) {
           res.status(500).send('Error retrieving artist data');
+      } else {
+          res.json(result);
+      }
+  });
+});
+
+app.get('/track/:trackName', (req, res) => {
+  database.getTrackData(req.params.trackName, (err, result) => {
+      if (err) {
+          res.status(500).send('Error retrieving track data');
       } else {
           res.json(result);
       }
@@ -65,13 +70,13 @@ app.get('/artists', (req, res) => {
   });
 });
 
-app.get('/track/:trackName', (req, res) => {
-  database.getTrackData(req.params.trackName, (err, result) => {
-      if (err) {
-          res.status(500).send('Error retrieving track data');
-      } else {
-          res.json(result);
-      }
+app.get('/tracks', (req, res) => {
+  database.getAllTracks((err, tracks) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Error retrieving tracks');
+    } else {
+      res.json(tracks);
+    }
   });
 });
-
