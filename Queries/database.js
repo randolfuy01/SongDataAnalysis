@@ -33,52 +33,15 @@ function getTrackData(track, callback) {
     });
 };
 
-// Getting data for all artists
-function getArtistAverages(artist, callback) {
-    const artistAveragesArray = [];
-    getArtistData(artist, function(err, result) {
-        if (err) {
-            console.error('Error fetching artist data:', err);
-            return;
-        }
-
-        // Assuming 'result' is an array of song data
-        let totalEnergy = 0;
-        let totalAcousticness = 0;
-        let totalValence = 0;
-        let totalSpeechiness = 0;
-        let totalInstrumentalness = 0;
-        let totalLiveness = 0;
-        result.forEach(element => {
-            totalEnergy += element.Energy;
-            totalAcousticness += element.Acousticness;
-            totalValence += element.Valence;
-            totalSpeechiness += element.Speechiness;
-            totalInstrumentalness += element.Acousticness;
-            totalLiveness += element.Liveness;
-        });
-        artistAveragesArray.push({x: "accoustic", value: parseInt(totalAcousticness/10)});
-        artistAveragesArray.push({x: "valence", value: parseInt(totalValence/10)});
-        artistAveragesArray.push({x: "speechiness", value: parseInt(totalSpeechiness/10)});
-        artistAveragesArray.push({x: "Instrumentalness", value: parseInt(totalInstrumentalness/10)});
-        artistAveragesArray.push({x: "Energy", value: parseInt(totalEnergy/10)});
-        artistAveragesArray.push({x: "liveness", value: parseInt(totalLiveness/10)})
-        console.log(artistAveragesArray)
-    });
-    return artistAveragesArray;
-};
-
 function getTotalAverages(callback) {
-    const totalAverages = []
     const query_string = "SELECT * FROM song_datasets;";
     con.query(query_string, function (err, result) {
         if (err) {
             console.error(err);
-            callback(err, null); 
-        } else {
-            console.log(result);
-            callback(null, result);
+            callback(err, null);
+            return;
         }
+
         let totalEnergy = 0;
         let totalAcousticness = 0;
         let totalValence = 0;
@@ -90,18 +53,23 @@ function getTotalAverages(callback) {
             totalAcousticness += element.Acousticness;
             totalValence += element.Valence;
             totalSpeechiness += element.Speechiness;
-            totalInstrumentalness += element.Acousticness;
+            totalInstrumentalness += element.Instrumentalness; // Fixed property name
             totalLiveness += element.Liveness;
         });
-        totalAverages.push({x: "accoustic", value: parseInt(totalAcousticness/17841)});
-        totalAverages.push({x: "valence", value: parseInt(totalValence/17841)});
-        totalAverages.push({x: "speechiness", value: parseInt(totalSpeechiness/17841)});
-        totalAverages.push({x: "Instrumentalness", value: parseInt(totalInstrumentalness/17841)});
-        totalAverages.push({x: "Energy", value: parseInt(totalEnergy/17841)});
-        totalAverages.push({x: "liveness", value: parseInt(totalLiveness/17841)})
-        console.log(totalAverages);
+
+        const totalAverages = [];
+        if (result.length > 0) {
+            totalAverages.push({x: "acoustic", value: parseInt(totalAcousticness / result.length)});
+            totalAverages.push({x: "valence", value: parseInt(totalValence / result.length)});
+            totalAverages.push({x: "speechiness", value: parseInt(totalSpeechiness / result.length)});
+            totalAverages.push({x: "instrumentalness", value: parseInt(totalInstrumentalness / result.length)});
+            totalAverages.push({x: "energy", value: parseInt(totalEnergy / result.length)});
+            totalAverages.push({x: "liveness", value: parseInt(totalLiveness / result.length)});
+        }
+
+        callback(null, totalAverages); // Call the callback with processed data
     });
-    return totalAverages;
+    // No return statement here, as con.query is asynchronous
 }
 
 
@@ -125,25 +93,7 @@ function getAllArtists(callback) {
 
 
 // Testing 
-getAllArtists(function(err, artists) {
-   if (err) {
-        console.error('Error:', err);
-    } else {
-        console.log('Artists:', artists);
-    }
-});
-
-getTotalAverages(function(err, data) {
-   if (err) {
-        // Handle the error
-        console.error('Error fetching data:', err);
-    } else {
-        // Process the data
-       console.log('Data:', data);
-        // Here you can calculate averages or any other operation
-    }
-});
-getArtistAverages("Black Eyed Peas");
+getArtistAverages("Drake");
 
 module.exports = {
     getArtistData,

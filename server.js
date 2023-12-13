@@ -1,6 +1,8 @@
 const openAIFunctions = require('./Queries/openAIFunctions.js');
+const database = require('./Queries/database.js')
 const getArtistInformation = openAIFunctions.getArtistInformation;
 const getSongInformation = openAIFunctions.getSongInformation;
+const getArtistAverages = database.getArtistAverages;
 
 var port = 3000;
 var path = require('path');
@@ -37,5 +39,39 @@ app.get('/artist-info/:artist', async (req, res) => {
       console.error(error); // Log the error for debugging
       res.status(500).send('Error retrieving song description');
     }
+});
+
+
+// Database Queries
+
+app.get('/artist/:artistName', (req, res) => {
+  database.getArtistData(req.params.artistName, (err, result) => {
+      if (err) {
+          res.status(500).send('Error retrieving artist data');
+      } else {
+          res.json(result);
+      }
   });
+});
+
+app.get('/artists', (req, res) => {
+  database.getAllArtists((err, artists) => {
+      if (err) {
+          console.error(err);
+          res.status(500).send('Error retrieving artists');
+      } else {
+          res.json(artists);
+      }
+  });
+});
+
+app.get('/track/:trackName', (req, res) => {
+  database.getTrackData(req.params.trackName, (err, result) => {
+      if (err) {
+          res.status(500).send('Error retrieving track data');
+      } else {
+          res.json(result);
+      }
+  });
+});
 
