@@ -32,7 +32,6 @@ function getTrackData(track, callback) {
     });
 };
 
-
 function getAllArtists(callback) {
     const query_string = "SELECT DISTINCT(Artist) FROM song_datasets;";
     const allArtists = []
@@ -52,7 +51,7 @@ function getAllArtists(callback) {
 };
 
 function getAllTracks(callback) {
-    const query_string = "SELECT DISTINCT(Track) FROM song_datasets;";
+    const query_string = "SELECT DISTINCT(Track) FROM song_datasets LIMIT 200;";
     const allTracks = []
     con.query(query_string, function (err, result) {
         if (err) {

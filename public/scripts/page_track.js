@@ -19,12 +19,22 @@ async function fetchTrackArtist(trackName) {
     return data;
 }
 
-async function fetchTrackAlbum(trackName) {
-    const response = await fetch(`/track-album/${trackName}`);
-    const data = await response.text();
-    return data;
+async function fetchAlbum(trackName) {
+    try {
+        const response = await fetch(`http://localhost:3000/track/${trackName}`);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        console.log(data[0].Album);
+        return data[0].Album; // Return the mapped array
+        } catch (error) {
+            console.error('There has been a problem with your fetch operation:', error);
+            return []; // Return an empty array or handle error
+        }
 }
 
+fetchAlbum("21 Questions");
 async function fetchTrackData(trackName) {
     try {
         const response = await fetch(`http://localhost:3000/track/${trackName}`);
@@ -163,11 +173,8 @@ async function updateChart() {
     const Album1 = document.getElementById("Album1");
 
     if (Album1) {
-        fetchTrackAlbum(compare1)
-            .then(data => {
-                Album1.textContent = "Album: " + data; // Ensure assignment is inside .then()
-            })
-            .catch(error => console.error('Error fetching album info for Description1:', error));
+        const data = await fetchAlbum(compare1);
+        Album1.textContent = "Album: " + data;
     } else {
         console.log('Element with id "Album" not found');
     }

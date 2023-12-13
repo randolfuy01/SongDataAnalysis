@@ -7,6 +7,12 @@ async function fetchTrackInfo(trackName) {
     return data;
 }
 
+async function fetchTrackType(trackName) {
+    const response = await fetch(`/track-type/${trackName}`);
+    const data = await response.text();
+    return data;
+}
+
 async function fetchTrackData(trackName) {
     try {
         const response = await fetch(`http://localhost:3000/track/${trackName}`);
@@ -59,6 +65,53 @@ async function fetchAllTracks() {
     }
 }
 
+async function fetchAlbum(trackName) {
+    try {
+        const response = await fetch(`http://localhost:3000/track/${trackName}`);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        console.log(data[0].Album);
+        if (data[0].Album === undefined) {
+            return "Single"
+        }
+        return data[0].Album; // Return the mapped array
+        } catch (error) {
+            console.error('There has been a problem with your fetch operation:', error);
+            return []; // Return an empty array or handle error
+        }
+}
+
+async function fetchArtist(trackName) {
+    try {
+        const response = await fetch(`http://localhost:3000/track/${trackName}`);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        console.log(data[0].Artist);
+        return data[0].Artist; // Return the mapped array
+        } catch (error) {
+            console.error('There has been a problem with your fetch operation:', error);
+            return []; // Return an empty array or handle error
+        }
+}
+
+async function fetchAllTracks() {
+    try {
+        const response = await fetch('http://localhost:3000/tracks');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        console.log(data);
+        return data.map(item => item.Track.slice(0,20)); // Return the mapped array
+    } catch (error) {
+        console.error('There has been a problem with your fetch operation:', error);
+        return []; // Return an empty array or handle error
+    }
+}
 // Display Functions
 const trackList = await fetchAllTracks();
 function createDropdownOptions(dropdownId) {
@@ -128,11 +181,54 @@ async function updateChart() {
         console.log('Element with id "Description2" not found');
     }
 
+    const Genre1 = document.getElementById("genre1");
+    const Genre2 = document.getElementById("genre2");
+    if (Genre1) {
+        fetchTrackType(compare1)
+            .then(data => {
+                Genre1.textContent = "Genre: " + data; // Ensure assignment is inside .then()
+            })
+            .catch(error => console.error('Error fetching artist info for "track-type":', error));
+    } else {
+        console.log('Element with id "track-type" not found');
+    }
+
+    if (Genre2) {
+        fetchTrackType(compare2)
+            .then(data => {
+                Genre2.textContent = "Genre: " + data; // Ensure assignment is inside .then()
+            })
+            .catch(error => console.error('Error fetching artist info for "track-type":', error));
+    } else {
+        console.log('Element with id "track-type" not found');
+    }
+    const Album1 = document.getElementById("Album1");
+    const Album2 = document.getElementById("Album2");
+
+    if (Album1) {
+        const album1 = await fetchAlbum(compare1);
+        Album1.textContent = "Album: " + album1;
+    }
+
+    if (Album2) {
+        const album2 = await fetchAlbum(compare2);
+        Album2.textContent = "Album: " + album2;
+    }
+
+    const Artist1 = document.getElementById("Artist1");
+    const Artist2 = document.getElementById("Artist2");
+    if (Artist1) {
+        const artist1 = await fetchArtist(compare1);
+        Artist1.textContent = "Artist: " + artist1;
+    }
+    if (Artist2) {
+        const artist2 = await fetchArtist(compare2);
+        Artist2.textContent = "Artist: " + artist2;
+    }
     // Fetch array data from the dictionary
     const arrayData1 = await fetchTrackData(compare1);
     const arrayData2 = await fetchTrackData(compare2);
-    console.log(arrayData1);
-    console.log(arrayData2);
+
     // Call the chart creation function
     const chartContainer = document.getElementById("spider_container");
     chartContainer.innerHTML = '';
