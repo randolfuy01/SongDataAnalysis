@@ -1,6 +1,6 @@
 const OpenAI = require("openai");
 const openai = new OpenAI({
-  apiKey: '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',
+  apiKey: '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',
 });
 
 async function getArtistInformation(artist) {
@@ -43,6 +43,22 @@ async function getArtistMusicType(artist) {
     return response;
 }
 
+async function getArtistViews(artist) {
+    const completion = await openai.chat.completions.create({
+        model: "gpt-4",
+        messages: [
+            { role: "system", content: "You are an assistant for someone looking into music."},
+            { role: "user", content: "How many views does " + artist + " have."}
+        ],
+        max_tokens: 10,
+        temperature: 0
+    });
+    const response = completion.choices[0].message.content;
+    console.log(response);
+    return response;
+}
+
+getArtistViews("Kanye");
 module.exports = {
     getArtistInformation,
     getTrackInformation,
