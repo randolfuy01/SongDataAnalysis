@@ -12,7 +12,8 @@ export function createComparisonRadarChart(compare1, compare2, arrayData1, array
     song_chart.width = "500px";
     song_chart.height = "500px";
     song_chart.yGrid().palette(["white"]);
-
+    console.log(arrayData1);
+    console.log(arrayData2)
     // Set names for area series
     var areaSeries1 = song_chart.area(arrayData1);
     areaSeries1.name(compare1).markers(true).fill("#79AC78", 0.3).stroke("#79AC78");
