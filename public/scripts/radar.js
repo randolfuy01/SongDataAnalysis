@@ -25,7 +25,7 @@ export function createComparisonRadarChart(compare1, compare2, arrayData1, array
     song_chart.draw();
 };
 
-export function createSingularChart(value1, array2) {
+export function createSingularChart(value1, array1) {
         // CREATING THE CHART 
         var song_chart = anychart.radar();
         song_chart.title("Vibe Comparison")
@@ -40,8 +40,8 @@ export function createSingularChart(value1, array2) {
         song_chart.height = "500px";
         song_chart.yGrid().palette(["white"]);
         // Set names for area series
-        var areaSeries1 = song_chart.area(arrayData1);
-        areaSeries1.name(compare1).markers(true).fill("#79AC78", 0.3).stroke("#79AC78");
+        var areaSeries1 = song_chart.area(array1);
+        areaSeries1.name(value1).markers(true).fill("#79AC78", 0.3).stroke("#79AC78");
     
         song_chart.container('spider_container');
     

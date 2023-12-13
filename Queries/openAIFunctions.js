@@ -28,6 +28,15 @@ async function getTrackInformation(track) {
     return response;
 }
 
+async function getArtistMusicType(artist) {
+    const completion = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [
+            { role: "system", content: "You are an assistant for someone looking into music."},
+            { role: "user", content: "Describe what type of musc " + artist + "makes."}
+        ]
+    })
+}
 module.exports = {
     getArtistInformation,
     getTrackInformation
