@@ -121,7 +121,7 @@ async function updateChart() {
     if (Music1) {
         fetchArtistMusicType(compare1)
             .then(data => {
-                Music1.textContent = data; // Ensure assignment is inside .then()
+                Music1.textContent = "Genre: " + data; // Ensure assignment is inside .then()
             })
             .catch(error => console.error('Error fetching artist info for Music1: ', error));
     } else {
@@ -131,7 +131,7 @@ async function updateChart() {
     if (Music2) {
         fetchArtistMusicType(compare2)
             .then(data => {
-                Music2.textContent = data; // Ensure assignment is inside .then()
+                Music2.textContent = "Genre: " + data; // Ensure assignment is inside .then()
             })
             .catch(error => console.error('Error fetching artist info for Music2: ', error));
     } else {
