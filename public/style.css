@@ -282,6 +282,15 @@ nav a:hover {
     color: #000;
 }
 
+#nanoo {
+    background: #fff;
+    width: 350x;
+    height: 400px;
+    border-radius: 200px/150px;
+    border-bottom-left-radius: 200px;
+    border-bottom-right-radius: 200px;
+}
+
 .container {
     
 }
