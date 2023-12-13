@@ -1,6 +1,6 @@
 const OpenAI = require("openai");
 const openai = new OpenAI({
-  apiKey: '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',
+  apiKey: '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',
 });
 
 async function getArtistInformation(artist) {
@@ -12,19 +12,6 @@ async function getArtistInformation(artist) {
         ],
     });
     const response = completion.choices[0].message.content;
-    return response;
-}
-
-async function getTrackInformation(track) {
-    const completion = await openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
-        messages: [
-            { role: "system", content: "You are an assistant for someone looking into music."},
-            { role: "user", content: "Desicribe what the track " + track + " is about in 3 sentences."}
-        ],
-    });
-    const response = completion.choices[0].message.content;
-    console.log(response);
     return response;
 }
 
@@ -58,9 +45,54 @@ async function getArtistLocation(artist) {
     return response;
 }
 
+async function getTrackInformation(track) {
+    const completion = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [
+            { role: "system", content: "You are an assistant for someone looking into music."},
+            { role: "user", content: "Desicribe what the track " + track + " is about in 3 sentences."}
+        ],
+    });
+    const response = completion.choices[0].message.content;
+    console.log(response);
+    return response;
+}
+
+async function getTrackType(track) {
+    const completion = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [
+            { role: "system", content: "You are an assitant for someone looking into music."},
+            { role: "user", content: "In one or two words, What genre is the song " + track + " from."}
+        ],
+        max_tokens: 3,
+        temperature: 0
+    });
+    const response = completion.choices[0].message.content;
+    console.log(response);
+    return response;
+}
+
+async function getTrackArtist(track) {
+    const completion = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [
+            { role: "system", content: "You are an assitant for someone looking into music."},
+            { role: "user", content: "In one or two words, who sang the song " + track + "."}
+        ],
+        max_tokens: 2,
+        temperature: 0
+    });
+    const response = completion.choices[0].message.content;
+    console.log(response);
+    return response;
+}
+
 module.exports = {
     getArtistInformation,
     getTrackInformation,
     getArtistMusicType,
-    getArtistLocation
+    getArtistLocation,
+    getTrackArtist,
+    getTrackType
 };
