@@ -68,7 +68,7 @@ async function fetchAllTracks() {
         }
         const data = await response.json();
         console.log(data);
-        return data.map(item => item.Track.slice(0,20)); // Return the mapped array
+        return data.map(item => item.Track.slice(0,30)); // Return the mapped array
     } catch (error) {
         console.error('There has been a problem with your fetch operation:', error);
         return []; // Return an empty array or handle error
@@ -127,7 +127,7 @@ async function updateChart() {
     if (trackType ) {
         fetchTrackType(compare1)
             .then(data => {
-                trackType.textContent = data; // Ensure assignment is inside .then()
+                trackType.textContent = "Genre: " + data; // Ensure assignment is inside .then()
             })
             .catch(error => console.error('Error fetching artist info for "track-type":', error));
     } else {
