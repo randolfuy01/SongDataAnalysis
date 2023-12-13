@@ -1,6 +1,6 @@
 const OpenAI = require("openai");
 const openai = new OpenAI({
-  apiKey: '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',
+  apiKey: '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',
 });
 
 async function getArtistInformation(artist) {
@@ -20,13 +20,12 @@ async function getArtistMusicType(artist) {
         model: "gpt-3.5-turbo",
         messages: [
             { role: "system", content: "You are an assistant for someone looking into music."},
-            { role: "user", content: "Describe what genre of musc " + artist + "makes in 2 words."}
+            { role: "user", content: "Describe what genre of music " + artist + "makes in 2 words."}
         ],
-        max_tokens: 3,
+        max_tokens: 4,
         temperature: 0
     });
     const response = completion.choices[0].message.content;
-    console.log(response);
     return response;
 }
 
@@ -37,11 +36,10 @@ async function getArtistLocation(artist) {
             { role: "system", content: "You are an assitant for someone looking into music."},
             { role: "user", content: "In one or two words, What country  is " + artist + " from."}
         ],
-        max_tokens: 10,
+        max_tokens: 20,
         temperature: 0
     });
     const response = completion.choices[0].message.content;
-    console.log(response);
     return response;
 }
 
@@ -54,7 +52,6 @@ async function getTrackInformation(track) {
         ],
     });
     const response = completion.choices[0].message.content;
-    console.log(response);
     return response;
 }
 
@@ -69,7 +66,6 @@ async function getTrackType(track) {
         temperature: 0
     });
     const response = completion.choices[0].message.content;
-    console.log(response);
     return response;
 }
 
@@ -84,7 +80,6 @@ async function getTrackArtist(track) {
         temperature: 0
     });
     const response = completion.choices[0].message.content;
-    console.log(response);
     return response;
 }
 
@@ -99,7 +94,6 @@ async function getTrackAlbum(track) {
         temperature: 0
     });
     const response = completion.choices[0].message.content;
-    console.log(response);
     return response;
 }
 
