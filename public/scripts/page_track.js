@@ -10,19 +10,21 @@ async function fetchTrackInfo(trackName) {
 async function fetchTrackType(trackName) {
     const response = await fetch(`/track-type/${trackName}`);
     const data = await response.text();
-    console.log(data);
     return data;
 }
 
 async function fetchTrackArtist(trackName) {
     const response = await fetch(`/track-artist/${trackName}`);
     const data = await response.text();
-    console.log(data);
     return data;
 }
 
-fetchTrackType("Runaway");
-fetchTrackArtist("Runaway");
+async function fetchTrackAlbum(trackName) {
+    const response = await fetch(`/track-album/${trackName}`);
+    const data = await response.text();
+    return data;
+}
+
 async function fetchTrackData(trackName) {
     try {
         const response = await fetch(`http://localhost:3000/track/${trackName}`);
@@ -110,6 +112,17 @@ async function updateChart() {
         console.log('Element with id "song-name" not found');
     }
 
+    const Artist1 = document.getElementById("track-artist");
+    if (Artist1) {
+        fetchTrackArtist(compare1)
+            .then(data => {
+                Artist1.textContent = "Artist: " + data; // Ensure assignment is inside .then()
+            })
+            .catch(error => console.error('Error fetching artist name for artist:', error));
+    } else {
+        console.log('Element with id "track-artist" not found');
+    }
+
     const artistName = document.getElementById("artist-name");
 
     if (artistName) {
@@ -147,6 +160,17 @@ async function updateChart() {
         console.log('Element with id "Description1" not found');
     }
 
+    const Album1 = document.getElementById("Album1");
+
+    if (Album1) {
+        fetchTrackAlbum(compare1)
+            .then(data => {
+                Album1.textContent = "Album: " + data; // Ensure assignment is inside .then()
+            })
+            .catch(error => console.error('Error fetching album info for Description1:', error));
+    } else {
+        console.log('Element with id "Album" not found');
+    }
     // Fetch array data from the dictionary
     const arrayData1 = await fetchTrackData(compare1);
 
