@@ -41,14 +41,16 @@
             <h3 id = "artist-name">JID, 21 Savage, Baby Tate</h3>
             <h2 id = "song-name">Surround Sound</h2>
             <a href="#"><span class="tag">Album: The Forever Story</span></a>
-            <a href="#"><span class="tag">Music Type: Rap</span></a>
-            <a href="#"><span class="tag">Music Type: Rap</span></a>
-            <a href="#"><span class="tag">Music Type: Rap</span></a>
+            <a href="#"><span class="tag" id="track-type">Genre: Rap</span></a>
+            <a href="#"><span class="tag">Artist: Rap</span></a>
+            <a href="#"><span class="tag">Views: Rap</span></a>
           </div>  
           <div class="flexbox-itemhalf2 Flexbox Item 1">
             <div>
-              <p1><label for="songDropdown">Choose Song:</label></p1>
-              <select id="songDropdown"></select>
+              <p1>
+              <label for="compare1Dropdown">Choose track: </label>
+              </p1>
+              <select id="compare1Dropdown"></select>
             </div>
             <img id = "song-image" src="./images/JIDalbum.png" alt="song-picture" width="100%" height="70%">
           </div>
@@ -57,13 +59,12 @@
         <div class="Flexbox-container2">
           <div class="flexbox-itemhalf1 Flexbox Item 1" style="clear: both;">
             <h2>About this track</h2>
-            <p1 class = "track-info">
+            <p1 class = "track-info" id = "Description1">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p1>
           </div>  
           <div class="flexbox-itemhalf2 Flexbox Item 1">
             <div id = "song_chart" style="background: transparent;">
-       
             </div>
           </div>
         </div>
@@ -74,26 +75,8 @@
         
 
         <article>
-          <!--
-          <table>
-            <tr>
-              <td>Tempo</td>
-              <td>
-                <div style='background-color:green; width:500'> 
-                  140 bpm
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Loudness</td>
-              <td>
-                <div style='background-color:Yellow; width:1000'>
-                  50 Dbs
-                </div>
-              </td>
-            </tr>
-          </table>
-          -->
+          <div id = "spider_container">
+          </div>
         </article>
       </section> 
     

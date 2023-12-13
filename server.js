@@ -38,6 +38,28 @@ app.get('/track-info/:track', async (req, res) => {
   }
 });
 
+app.get('/track-type/:track', async (req, res) => {
+  try {
+    const song = req.params.track;
+    const info = await openAIFunctions.getTrackType(song); 
+    res.send(info);
+  } catch (error) {
+    console.error(error); // Log the error for debugging
+    res.status(500).send('Error retrieving song genre');
+  }
+});
+
+app.get('/track-artist/:track', async (req, res) => {
+  try {
+    const song = req.params.track;
+    const info = await openAIFunctions.getTrackArtist(song); 
+    res.send(info);
+  } catch (error) {
+    console.error(error); // Log the error for debugging
+    res.status(500).send('Error retrieving song track');
+  }
+});
+
 app.get('/music-type/:artist', async (req, res) => {
   try {
     const artist = req.params.artist;
