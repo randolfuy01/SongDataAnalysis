@@ -49,6 +49,17 @@ app.get('/music-type/:artist', async (req, res) => {
   }
 });
 
+app.get('/artist-location/:artist', async (req, res) => {
+  try {
+    const artist = req.params.artist;
+    const info = await openAIFunctions.getArtistLocation(artist);
+    res.send(info);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error retrieving artist type')
+  }
+});
+
 // Database Queries
 app.get('/artist/:artistName', (req, res) => {
   database.getArtistData(req.params.artistName, (err, result) => {

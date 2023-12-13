@@ -13,6 +13,14 @@ async function fetchArtistMusicType(artistName) {
     return data;
 }
 
+async function fetchArtistLocation(artistName) {
+    const response = await fetch(`/artist-location/${artistName}`);
+    console.log("fetch successful" );
+    const data = await response.text();
+    return data;
+}
+
+fetchArtistLocation("Drake");
 async function fetchArtistData(artistName) {
     try {
         const response = await fetch(`http://localhost:3000/artist/${artistName}`);
@@ -100,15 +108,25 @@ async function updateChart() {
         console.log('Element with id "artist-name" not found');
     }
     
+    const Location1 = document.getElementById("Location1");
+    if (Location1) {
+        fetchArtistLocation(compare1)
+            .then(data => {
+                Location1.textContent = "Location: " + data;
+            })
+            .catch(error => console.error('Error fetching location info for Location1'));
+    } else {
+        console.log('Element with id "Location1" not found');
+    }
     const Music1 = document.getElementById("Music1");
     if (Music1) {
         fetchArtistMusicType(compare1)
             .then(data => {
-                Music1.textContent = data; // Ensure assignment is inside .then()
+                Music1.textContent = "Music Genre: " + data; // Ensure assignment is inside .then()
             })
             .catch(error => console.error('Error fetching artist info for Music1: ', error));
     } else {
-            console.log('Element with id "Music1" not found');
+        console.log('Element with id "Music1" not found');
     }
 
     // Updates Description for Artists in real time
