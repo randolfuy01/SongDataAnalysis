@@ -363,7 +363,8 @@ nav a:hover {
 
 .simple-bar-chart>.item>* {
     position: absolute;
-    text-align: center
+    text-align: center;
+    color: #eee;
 }
 
 .simple-bar-chart>.item>.label {
@@ -488,8 +489,10 @@ nav a:hover {
 /* Spider Chart */
 #spider_container {
     margin-top: auto;
+    
     margin-left: 450px;
     margin-right: 450px;
+    
     width: 500px;
     height: 500px;
 }

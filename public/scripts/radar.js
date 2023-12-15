@@ -42,7 +42,7 @@ export function createSingularChart(value1, array1) {
         // Set names for area series
         var areaSeries1 = song_chart.area(array1);
         areaSeries1.name(value1).markers(true).fill("#79AC78", 0.3).stroke("#79AC78");
-    
+        song_chart.background('transparent');
         song_chart.container('spider_container');
     
         // Initiate chart drawing
